@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Liga do Horizonte — página 6</title>
+  <desc id="desc">Vértice descobre que o núcleo é um farol e Pulso Escarlate prepara uma reversão.</desc>
+  <style>text { stroke: none; }</style>
+  <defs><linearGradient id="grid" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#11243a"/><stop offset="1" stop-color="#25122f"/></linearGradient><radialGradient id="signal"><stop stop-color="#fff3ad"/><stop offset=".22" stop-color="#ff394b"/><stop offset="1" stop-color="#49143b" stop-opacity="0"/></radialGradient></defs>
+  <rect width="800" height="1200" fill="#eee6d6"/>
+  <rect x="24" y="24" width="752" height="1152" fill="#080b13"/>
+  <g stroke="#080b13" stroke-width="12">
+    <g>
+      <rect x="38" y="38" width="724" height="431" fill="url(#grid)"/>
+      <g stroke="#52e8d8" stroke-width="3" opacity=".25"><path d="M38 133h724M38 230h724M38 327h724M136 38v431m102-431v431m102-431v431m102-431v431m102-431v431m102-431v431"/></g>
+      <path d="M80 374 235 171l104 103 183-179 173 279" fill="none" stroke="#62f0df" stroke-width="7"/>
+      <g transform="translate(386 285)">
+        <path d="M-23-97 0-124l24 27 7 54-31 29-30-29z" fill="#070a11" stroke="none"/>
+        <path d="M-24-8h48l34 100-45 80h-26l-44-80z" fill="#070a11" stroke="none"/>
+        <path d="M-21-67 0-79l21 12-9 13H-12z" fill="#58f0df" stroke="none"/>
+        <path d="M-17 14 0 40l18-26L0 79z" fill="none" stroke="#51e4d8" stroke-width="5"/>
+      </g>
+      <rect x="55" y="57" width="363" height="78" rx="37" fill="#fff" stroke="none"/>
+      <path d="m346 129 22 34-47-30" fill="#fff" stroke="none"/>
+      <text x="83" y="89" fill="#111" font-family="Arial, sans-serif" font-size="20" font-weight="700">Isto não é uma bomba.</text>
+      <text x="83" y="116" fill="#111" font-family="Arial, sans-serif" font-size="19">É um farol — e está chamando algo.</text>
+    </g>
+    <g>
+      <rect x="38" y="481" width="352" height="334" fill="#221426"/>
+      <circle cx="212" cy="657" r="117" fill="none" stroke="#f33c50" stroke-width="10" opacity=".38"/>
+      <circle cx="212" cy="657" r="72" fill="none" stroke="#f33c50" stroke-width="7" opacity=".67"/>
+      <g transform="translate(211 666)">
+        <circle cy="-58" r="24" fill="#080a10" stroke="none"/>
+        <path d="m-23-34-53 50 29 34 33-25-11 124h63L27 25l34 25 29-34-54-50z" fill="#080a10" stroke="none"/>
+        <circle cx="-64" cy="20" r="22" fill="none" stroke="#ef3d4d" stroke-width="7"/>
+        <circle cx="73" cy="20" r="22" fill="none" stroke="#ef3d4d" stroke-width="7"/>
+      </g>
+      <rect x="61" y="504" width="288" height="65" rx="32" fill="#fff" stroke="none"/>
+      <path d="m193 564 18 30 13-30" fill="#fff" stroke="none"/>
+      <text x="100" y="544" fill="#111" font-family="Arial, sans-serif" font-size="20" font-weight="700">Todo pulso pode voltar.</text>
+    </g>
+    <g>
+      <rect x="402" y="481" width="360" height="334" fill="#132932"/>
+      <path d="M402 761 762 602v213H402z" fill="#0c171e" stroke="none"/>
+      <g transform="translate(574 674)">
+        <circle cy="-57" r="24" fill="#080a10" stroke="none"/>
+        <path d="m-23-33-52 47 29 35 33-25-11 126h64L28 24l34 25 29-35-53-47z" fill="#080a10" stroke="none"/>
+        <path d="m-9-5 10-13L12-5 1 23z" fill="#ffd04f" stroke="none"/>
+        <path d="M-19-25-82 20l-51 85 105-42zm38 0 64 45 52 85L28 63z" fill="#78162a" stroke="#dc3442" stroke-width="3"/>
+      </g>
+      <rect x="423" y="504" width="310" height="80" rx="38" fill="#fff" stroke="none"/>
+      <path d="m579 578 16 32 12-32" fill="#fff" stroke="none"/>
+      <text x="457" y="536" fill="#111" font-family="Arial, sans-serif" font-size="19" font-weight="700">Diga onde mirar.</text>
+      <text x="470" y="562" fill="#111" font-family="Arial, sans-serif" font-size="19">Eu entrego a luz.</text>
+    </g>
+    <g>
+      <rect x="38" y="827" width="724" height="335" fill="#131326"/>
+      <circle cx="401" cy="997" r="142" fill="url(#signal)" stroke="none"/>
+      <circle cx="401" cy="997" r="112" fill="none" stroke="#f33b4d" stroke-width="9"/>
+      <circle cx="401" cy="997" r="70" fill="none" stroke="#ffd24d" stroke-width="7"/>
+      <path d="M401 827v335M231 839l170 158 172-158M103 997h596m-509 151 211-151 212 151" fill="none" stroke="#f24951" stroke-width="4" opacity=".55"/>
+      <path d="m377 913 24-34 25 34 30 85-55 83-54-83z" fill="#080a10" stroke="none"/>
+      <text x="65" y="878" fill="#fff" stroke="none" font-family="Impact, Arial Black, sans-serif" font-size="44">INVERTER O SINAL.</text>
+      <text x="65" y="920" fill="#5de9db" stroke="none" font-family="Impact, Arial Black, sans-serif" font-size="37">TRAZER O AMANHÃ DE VOLTA.</text>
+    </g>
+  </g>
+  <text x="50" y="1148" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="700">06</text>
+</svg>

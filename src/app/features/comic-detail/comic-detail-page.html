@@ -1,0 +1,115 @@
+<main>
+  @if (comic$ | async; as comic) {
+    <section class="comic-hero" [style.--comic-accent]="comic.accentColor">
+      <div class="hero-backdrop" aria-hidden="true">
+        <img [src]="comic.coverUrl" alt="" />
+      </div>
+      <div class="page-shell breadcrumb">
+        <a routerLink="/">Início</a><span aria-hidden="true">/</span><a routerLink="/hqs">HQs</a
+        ><span aria-hidden="true">/</span><span>{{ comic.title }}</span>
+      </div>
+      <div class="comic-info page-shell">
+        <div class="cover-wrap">
+          <span class="cover-offset" aria-hidden="true"></span>
+          <img
+            [src]="comic.coverUrl"
+            [alt]="'Capa de ' + comic.title"
+            width="520"
+            height="720"
+            fetchpriority="high"
+          />
+        </div>
+
+        <div class="copy">
+          <p class="eyebrow">
+            Arquivo de herói <span>{{ comic.status }}</span>
+          </p>
+          <h1>{{ comic.title }}</h1>
+          <p class="tagline">{{ comic.tagline }}</p>
+          <p class="description">{{ comic.description }}</p>
+
+          <dl class="metadata">
+            <div>
+              <dt>Autoria</dt>
+              <dd>{{ comic.author }}</dd>
+            </div>
+            <div>
+              <dt>Gêneros</dt>
+              <dd>{{ comic.genres.join(' · ') }}</dd>
+            </div>
+            <div>
+              <dt>Lançamento</dt>
+              <dd>{{ comic.releaseDate | date: 'yyyy' }}</dd>
+            </div>
+            <div>
+              <dt>Edições</dt>
+              <dd>{{ comic.issues.length }}</dd>
+            </div>
+          </dl>
+
+          <div class="actions">
+            @if (firstIssue(comic); as issue) {
+              <a class="read-button" [routerLink]="['/ler', comic.slug, issue.slug]"
+                ><span aria-hidden="true">▶</span> Começar a ler</a
+              >
+            }
+            <a class="catalog-link" routerLink="/hqs">Voltar ao catálogo</a>
+          </div>
+        </div>
+      </div>
+      <p class="vertical-word" aria-hidden="true">FLAUZINAUTA</p>
+    </section>
+
+    <section class="issues page-shell" aria-labelledby="issues-title">
+      <header>
+        <div>
+          <p class="eyebrow">Cronologia de missões</p>
+          <h2 id="issues-title">Edições disponíveis</h2>
+        </div>
+        <span class="issue-count"
+          >{{ comic.issues.length.toString().padStart(2, '0') }} edições</span
+        >
+      </header>
+
+      <div class="issue-list">
+        @for (issue of comic.issues; track issue.id) {
+          <article class="issue-card">
+            <div class="issue-number" aria-hidden="true">{{ paddedIssue(issue.number) }}</div>
+            <div class="issue-cover">
+              <img [src]="comic.coverUrl" alt="" width="110" height="148" loading="lazy" />
+              <span>#{{ paddedIssue(issue.number) }}</span>
+            </div>
+            <div class="issue-copy">
+              <p>
+                Edição {{ paddedIssue(issue.number) }} ·
+                {{ issue.publishedAt | date: 'MMM yyyy' : '' : 'pt-BR' }}
+              </p>
+              <h3>{{ issue.title }}</h3>
+              <span>{{ issue.description }}</span>
+            </div>
+            <span class="pages">{{ issue.pages.length }} páginas</span>
+            <a
+              [routerLink]="['/ler', comic.slug, issue.slug]"
+              [attr.aria-label]="'Ler ' + issue.title"
+            >
+              <span>Ler edição</span><i aria-hidden="true">→</i>
+            </a>
+          </article>
+        }
+      </div>
+    </section>
+
+    <section class="next-story page-shell">
+      <p>A missão continua</p>
+      <h2>Outros heróis precisam<br />de você na linha de frente.</h2>
+      <a routerLink="/hqs">Conhecer os heróis <span aria-hidden="true">↗</span></a>
+    </section>
+  } @else {
+    <section class="not-found page-shell">
+      <span aria-hidden="true">404</span>
+      <h1>Este herói desapareceu do radar.</h1>
+      <p>Não encontramos o arquivo que você procura.</p>
+      <a routerLink="/hqs">Voltar ao catálogo</a>
+    </section>
+  }
+</main>

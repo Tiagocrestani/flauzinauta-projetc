@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 900" role="img" aria-labelledby="title desc">
+  <title id="title">Capa de Sentinela Solar</title>
+  <desc id="desc">Um herói de capa paira diante de um sol geométrico sobre uma metrópole escura.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#07101f"/><stop offset=".62" stop-color="#162544"/><stop offset="1" stop-color="#591d26"/></linearGradient>
+    <radialGradient id="sun"><stop stop-color="#fff6ba"/><stop offset=".32" stop-color="#ffc928"/><stop offset="1" stop-color="#e4471c"/></radialGradient>
+    <linearGradient id="cape" x1="0" x2="1"><stop stop-color="#490d1b"/><stop offset="1" stop-color="#d62e2e"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="8"/></filter>
+  </defs>
+  <rect width="650" height="900" fill="url(#sky)"/>
+  <path d="M325 120 350 265 420 138 398 281 511 188 414 301 557 257 423 326 573 338 423 352 558 426 411 377 513 492 390 395 423 540 362 404 325 560 301 407 221 535 272 394 141 484 257 375 103 415 247 350 94 330 248 324 108 249 261 302 157 178 280 285 240 134 309 278z" fill="#f7ae28" opacity=".2"/>
+  <circle cx="325" cy="336" r="156" fill="#ffb31b" opacity=".26" filter="url(#glow)"/>
+  <circle cx="325" cy="336" r="128" fill="url(#sun)"/>
+  <g fill="#07101a">
+    <path d="M0 620h68V493h41v127h31V548h61v72h42V470h68v150h35V526h47v94h33V444h81v176h39V515h37v105h67v280H0z"/>
+    <path d="M57 516h12v28H57zm138 62h13v31h-13zm68-79h15v39h-15zm190-24h18v43h-18zm29 0h9v43h-9zm89 70h12v37h-12z" fill="#ffc62c" opacity=".65"/>
+  </g>
+  <g>
+    <path d="M318 299c-23 0-39 17-39 40 0 17 8 30 20 37l-15 44-48 48 32 21 27-23-15 124h92l-17-124 31 26 29-25-51-48-14-44c12-8 19-21 19-37 0-22-15-39-38-39z" fill="#0a101b"/>
+    <path d="M296 379c-50 31-92 65-122 119 44-16 79-16 111-3l23-106zm54 0c58 30 103 72 137 129-54-20-91-20-122-7l-25-110z" fill="url(#cape)"/>
+    <path d="m307 402 18-22 19 22-19 39z" fill="#ffd33e"/>
+    <path d="M299 330h52l-9 16h-34z" fill="#f6bf35"/>
+    <circle cx="325" cy="411" r="36" fill="none" stroke="#ffd33e" stroke-width="4" opacity=".45"/>
+  </g>
+  <path d="M0 686 650 612v288H0z" fill="#090d17" opacity=".92"/>
+  <path d="M0 686 650 612" stroke="#f3aa28" stroke-width="5"/>
+  <text x="34" y="716" fill="#f7ae28" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="6">QUANDO A LUZ SE TORNA UMA ARMA</text>
+  <text x="31" y="786" fill="#fff7dd" font-family="Impact, Arial Black, sans-serif" font-size="74" letter-spacing="1">SENTINELA</text>
+  <text x="31" y="856" fill="#ffc42e" font-family="Impact, Arial Black, sans-serif" font-size="88" letter-spacing="4">SOLAR</text>
+  <rect x="14" y="14" width="622" height="872" fill="none" stroke="#f6c84b" stroke-width="3"/>
+</svg>

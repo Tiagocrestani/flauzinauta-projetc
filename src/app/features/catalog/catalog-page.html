@@ -1,0 +1,90 @@
+<main class="catalog page-shell">
+  <header class="catalog-header">
+    <div>
+      <p class="eyebrow">Arquivo de heróis Flauzinauta</p>
+      <h1>Escolha seu<br /><em>próximo herói.</em></h1>
+    </div>
+    <p class="intro">
+      Vigilantes urbanos, lendas ancestrais e equipes extraordinárias em HQs brasileiras para ler
+      agora — sem cadastro.
+    </p>
+  </header>
+
+  <section class="toolbar" aria-label="Filtros do catálogo">
+    <label class="search">
+      <span class="sr-only">Buscar por herói, título ou autor</span>
+      <svg aria-hidden="true" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="7" />
+        <path d="m16.5 16.5 4 4" />
+      </svg>
+      <input
+        type="search"
+        placeholder="Buscar herói, título, autor..."
+        [value]="query()"
+        (input)="updateQuery($event)"
+      />
+      @if (query()) {
+        <button type="button" (click)="clearFilters()" aria-label="Limpar busca">×</button>
+      }
+    </label>
+    <button
+      class="filter-toggle"
+      type="button"
+      (click)="isFilterOpen.set(!isFilterOpen())"
+      [attr.aria-expanded]="isFilterOpen()"
+    >
+      Filtros <span aria-hidden="true">⌄</span>
+    </button>
+    <label class="sort">
+      <span>Ordenar por</span>
+      <select [value]="sort()" (change)="updateSort($event)">
+        <option value="recent">Mais recentes</option>
+        <option value="title-asc">Título: A–Z</option>
+        <option value="title-desc">Título: Z–A</option>
+      </select>
+    </label>
+  </section>
+
+  <div class="catalog-body" [class.filters-open]="isFilterOpen()">
+    <aside class="filters" aria-label="Filtrar por gênero">
+      <p>Gêneros</p>
+      <div class="genre-options">
+        @for (genre of genres(); track genre) {
+          <button
+            type="button"
+            [class.active]="selectedGenre() === genre"
+            (click)="selectGenre(genre)"
+          >
+            <span>{{ genre }}</span>
+            <small>{{ genre === 'Todos' ? comics().length : '' }}</small>
+          </button>
+        }
+      </div>
+      @if (selectedGenre() !== 'Todos' || query()) {
+        <button class="clear" type="button" (click)="clearFilters()">Limpar filtros</button>
+      }
+    </aside>
+
+    <section class="results" aria-live="polite">
+      <div class="results-heading">
+        <h2>{{ selectedGenre() === 'Todos' ? 'Todos os heróis' : selectedGenre() }}</h2>
+        <span>{{ results().length }} {{ results().length === 1 ? 'série' : 'séries' }}</span>
+      </div>
+
+      @if (results().length) {
+        <div class="comic-grid">
+          @for (comic of results(); track comic.id; let index = $index) {
+            <app-comic-card [comic]="comic" [imagePriority]="index < 4" />
+          }
+        </div>
+      } @else {
+        <div class="empty">
+          <span aria-hidden="true">∅</span>
+          <h3>Nenhum herói encontrado</h3>
+          <p>Tente outro nome ou remova os filtros aplicados.</p>
+          <button type="button" (click)="clearFilters()">Ver todos os heróis</button>
+        </div>
+      }
+    </section>
+  </div>
+</main>

@@ -1,0 +1,18 @@
+<div class="loading-state" [class.is-compact]="compact()" role="status" aria-live="polite">
+  <span class="visually-hidden">{{ label() }}</span>
+
+  @if (compact()) {
+    <span class="spinner" aria-hidden="true"></span>
+    <span class="loading-label" aria-hidden="true">{{ label() }}</span>
+  } @else {
+    <div class="skeleton-grid" aria-hidden="true">
+      @for (_ of placeholders(); track $index) {
+        <div class="skeleton-card">
+          <span class="skeleton-cover"></span>
+          <span class="skeleton-line skeleton-line--short"></span>
+          <span class="skeleton-line"></span>
+        </div>
+      }
+    </div>
+  }
+</div>

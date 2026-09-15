@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Liga do Horizonte — página 7</title>
+  <desc id="desc">Os cinco heróis combinam seus poderes para destruir o farol em uma explosão de luz.</desc>
+  <style>text { stroke: none; }</style>
+  <defs><radialGradient id="blast"><stop stop-color="#fffde0"/><stop offset=".18" stop-color="#ffd24e"/><stop offset=".45" stop-color="#f23b49"/><stop offset=".72" stop-color="#58317b"/><stop offset="1" stop-color="#0c1730"/></radialGradient><linearGradient id="beam" x1="0" x2="1"><stop stop-color="#52ecdb"/><stop offset=".5" stop-color="#fff0a0"/><stop offset="1" stop-color="#ef3349"/></linearGradient></defs>
+  <rect width="800" height="1200" fill="#eee6d6"/>
+  <rect x="24" y="24" width="752" height="1152" fill="#080b13"/>
+  <g stroke="#080b13" stroke-width="12">
+    <g>
+      <rect x="38" y="38" width="724" height="1108" fill="url(#blast)"/>
+      <path d="M400 550 338 38h124zm0 0L762 149v167zm0 0 362 230v150zm0 0 86 596H315zm0 0L38 934V777zm0 0L38 307V143z" fill="#ffd957" opacity=".38" stroke="none"/>
+      <path d="M400 550 239 38m161 512L560 38M400 550 762 415M400 550l362 162M400 550l187 596M400 550l-185 596M400 550 38 713M400 550 38 414" stroke="#fff1a7" stroke-width="10" opacity=".7"/>
+      <circle cx="400" cy="550" r="159" fill="none" stroke="#fff5b5" stroke-width="14"/>
+      <circle cx="400" cy="550" r="101" fill="#fffad0" stroke="#f13a48" stroke-width="8"/>
+      <path d="m400 459 21 65 68 1-55 40 21 65-55-40-56 40 22-65-56-40 69-1z" fill="#151528" stroke="#ef3b48" stroke-width="7"/>
+      <g transform="translate(400 257)">
+        <circle cy="-43" r="20" fill="#070910" stroke="none"/>
+        <path d="m-20-24-42 40 24 27 25-20-8 94h53l-9-94 26 20 24-27-43-40z" fill="#070910" stroke="none"/>
+        <path d="M-17-18-74 26l-36 70 84-39zm34 0 58 44 36 70-85-39z" fill="#84192a" stroke="#e43b42" stroke-width="3"/>
+      </g>
+      <g transform="translate(180 474) rotate(-19)">
+        <circle cy="-38" r="18" fill="#070910" stroke="none"/>
+        <path d="m-18-21-38 35 21 25 24-18-8 84h46l-7-84 24 18 21-25-39-35z" fill="#070910" stroke="none"/>
+        <path d="M-16-17-76 17l-41 74 93-40zm32 0 61 34 42 74-95-40z" fill="#b42035" stroke="#ef4b47" stroke-width="3"/>
+      </g>
+      <g transform="translate(619 474) rotate(19)">
+        <circle cy="-38" r="18" fill="#070910" stroke="none"/>
+        <path d="m-18-21-39 35 22 25 24-18-8 84h46l-7-84 24 18 21-25-39-35z" fill="#070910" stroke="none"/>
+        <circle cx="-45" cy="18" r="17" fill="none" stroke="#ef3c4d" stroke-width="6"/><circle cx="53" cy="18" r="17" fill="none" stroke="#ef3c4d" stroke-width="6"/>
+      </g>
+      <g transform="translate(241 801)">
+        <circle cy="-39" r="18" fill="#070910" stroke="none"/>
+        <path d="m-18-22-39 36 23 25 23-18-8 85h47l-8-85 24 18 22-25-39-36z" fill="#070910" stroke="none"/>
+        <path d="M-26 93c-46 1-81 18-110 49m164-49c47 1 83 18 111 49" fill="none" stroke="#72d06e" stroke-width="10"/>
+      </g>
+      <g transform="translate(557 800)">
+        <circle cy="-39" r="18" fill="#070910" stroke="none"/>
+        <path d="m-18-22-39 36 23 25 23-18-8 85h47l-8-85 24 18 22-25-39-36z" fill="#070910" stroke="none"/>
+        <path d="M-15-15 0-25l15 10-7 10H-8z" fill="#57ebdc" stroke="none"/>
+      </g>
+      <path d="M399 326v107M230 496l103 36m236-36-103 36M287 804l71-175m154 175-71-175" stroke="url(#beam)" stroke-width="15"/>
+      <rect x="242" y="65" width="317" height="81" rx="39" fill="#fff" stroke="none"/>
+      <path d="m381 140 20 35 17-35" fill="#fff" stroke="none"/>
+      <text x="293" y="99" fill="#111" font-family="Arial, sans-serif" font-size="22" font-weight="700">Liga do Horizonte...</text>
+      <text x="339" y="127" fill="#b81e36" font-family="Arial, sans-serif" font-size="23" font-weight="700">AGORA!</text>
+      <text x="82" y="1078" fill="#fff7d7" stroke="none" font-family="Impact, Arial Black, sans-serif" font-size="93" letter-spacing="2" transform="rotate(-4 82 1078)">ALVORECER!</text>
+    </g>
+  </g>
+  <text x="50" y="1132" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="700">07</text>
+</svg>

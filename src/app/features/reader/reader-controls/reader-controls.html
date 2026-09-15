@@ -1,0 +1,103 @@
+<footer class="reader-controls" aria-label="Controles de leitura">
+  <div class="navigation-group" role="group" aria-label="Navegação entre páginas">
+    <button
+      type="button"
+      class="control-button page-button"
+      [disabled]="!canGoPrevious()"
+      aria-label="Página anterior"
+      title="Página anterior (seta para a esquerda)"
+      (click)="previousRequested.emit()"
+    >
+      <span aria-hidden="true">‹</span>
+      <span class="button-label">Anterior</span>
+    </button>
+
+    <output class="page-indicator" aria-live="polite" aria-atomic="true">
+      <strong>{{ currentPage() }}</strong>
+      <span aria-hidden="true">/</span>
+      <span class="sr-only">de</span>
+      <span>{{ totalPages() }}</span>
+    </output>
+
+    <button
+      type="button"
+      class="control-button page-button"
+      [disabled]="!canGoNext()"
+      aria-label="Próxima página"
+      title="Próxima página (seta para a direita)"
+      (click)="nextRequested.emit()"
+    >
+      <span class="button-label">Próxima</span>
+      <span aria-hidden="true">›</span>
+    </button>
+  </div>
+
+  <div class="tools-group" role="group" aria-label="Ajuste da imagem">
+    <button
+      type="button"
+      class="icon-button"
+      aria-label="Diminuir zoom"
+      title="Diminuir zoom"
+      (click)="zoomOutRequested.emit()"
+    >
+      <span aria-hidden="true">−</span>
+    </button>
+
+    <button
+      type="button"
+      class="zoom-value"
+      aria-label="Restaurar zoom e ajustar à tela"
+      title="Restaurar zoom"
+      (click)="resetZoomRequested.emit()"
+    >
+      {{ zoomPercent() }}%
+    </button>
+
+    <button
+      type="button"
+      class="icon-button"
+      aria-label="Aumentar zoom"
+      title="Aumentar zoom"
+      (click)="zoomInRequested.emit()"
+    >
+      <span aria-hidden="true">+</span>
+    </button>
+
+    <span class="group-divider" aria-hidden="true"></span>
+
+    <button
+      type="button"
+      class="fit-button"
+      [class.is-active]="fitMode() === 'width'"
+      [attr.aria-pressed]="fitMode() === 'width'"
+      title="Ajustar à largura"
+      (click)="fitModeRequested.emit('width')"
+    >
+      <span aria-hidden="true">↔</span>
+      <span>Largura</span>
+    </button>
+
+    <button
+      type="button"
+      class="fit-button"
+      [class.is-active]="fitMode() === 'height'"
+      [attr.aria-pressed]="fitMode() === 'height'"
+      title="Ajustar à altura"
+      (click)="fitModeRequested.emit('height')"
+    >
+      <span aria-hidden="true">↕</span>
+      <span>Altura</span>
+    </button>
+
+    <button
+      type="button"
+      class="icon-button fullscreen-button"
+      [attr.aria-label]="isFullscreen() ? 'Sair da tela cheia' : 'Entrar em tela cheia'"
+      [attr.title]="isFullscreen() ? 'Sair da tela cheia (Esc)' : 'Tela cheia'"
+      [attr.aria-pressed]="isFullscreen()"
+      (click)="fullscreenRequested.emit()"
+    >
+      <span aria-hidden="true">{{ isFullscreen() ? '⊟' : '⛶' }}</span>
+    </button>
+  </div>
+</footer>

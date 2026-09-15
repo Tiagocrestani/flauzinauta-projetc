@@ -1,0 +1,55 @@
+<article class="comic-card" [style.--card-accent]="comic().accentColor">
+  <a
+    class="card-link"
+    [routerLink]="['/hq', comic().slug]"
+    [attr.aria-label]="'Conhecer ' + comic().title"
+  >
+    <div class="cover">
+      @if (!imageFailed()) {
+        <img
+          [src]="comic().coverUrl"
+          [alt]="'Capa de ' + comic().title"
+          [attr.loading]="imagePriority() ? 'eager' : 'lazy'"
+          [attr.fetchpriority]="imagePriority() ? 'high' : 'auto'"
+          decoding="async"
+          (error)="markImageAsFailed()"
+        />
+      } @else {
+        <div class="cover-fallback" aria-hidden="true">
+          <svg viewBox="0 0 48 48">
+            <path d="M8 7h25a7 7 0 0 1 7 7v27H15a7 7 0 0 1-7-7V7Z" />
+            <path d="M15 7v34M21 17h12M21 23h9" />
+          </svg>
+        </div>
+      }
+
+      <div class="cover-shade"></div>
+
+      @if (badge()) {
+        <span class="badge">{{ badge() }}</span>
+      } @else if (comic().featured) {
+        <span class="badge">Destaque</span>
+      }
+
+      <span class="open-hint" aria-hidden="true">
+        Conhecer herói
+        <svg viewBox="0 0 20 20">
+          <path d="M4 10h11M11 6l4 4-4 4" />
+        </svg>
+      </span>
+    </div>
+
+    <div class="card-copy">
+      @if (showMetadata()) {
+        <div class="metadata">
+          <span>{{ comic().genres[0] || 'HQ' }}</span>
+          <span aria-hidden="true">•</span>
+          <span>{{ releaseYear() }}</span>
+        </div>
+      }
+
+      <h3>{{ comic().title }}</h3>
+      <p>{{ comic().author }}</p>
+    </div>
+  </a>
+</article>

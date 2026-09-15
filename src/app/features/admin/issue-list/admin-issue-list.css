@@ -1,0 +1,283 @@
+:host {
+  display: block;
+}
+.issue-admin,
+.missing {
+  max-width: 1300px;
+  margin: auto;
+  padding: clamp(1.25rem, 3vw, 3rem);
+}
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 2.5rem;
+  color: var(--color-muted);
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.breadcrumbs a {
+  color: var(--color-cape);
+  text-decoration: none;
+  font-weight: 800;
+}
+.page-heading,
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.page-heading {
+  margin-bottom: 2.5rem;
+}
+.eyebrow {
+  color: var(--color-cape);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+h1 {
+  margin-bottom: 0.6rem;
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  line-height: 0.95;
+}
+h2 {
+  margin-bottom: 0;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+.page-heading p:last-child {
+  max-width: 550px;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+.primary-action,
+.empty-state a,
+.missing a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.1rem;
+  color: var(--color-navy);
+  background: var(--color-energy);
+  border: 2px solid var(--color-ink);
+  box-shadow: 4px 4px 0 var(--color-cape);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.feedback {
+  padding: 0.85rem 1rem;
+  border-left: 4px solid #16824b;
+  background: #e3f5e9;
+  color: var(--color-navy);
+  font-weight: 700;
+}
+
+.feedback--error {
+  border-left-color: #a31326;
+  background: #ffe7e8;
+}
+.comic-summary {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  color: #fff;
+  background: var(--color-navy);
+  border-left: 5px solid var(--color-energy);
+}
+.comic-summary img,
+.cover-placeholder {
+  width: 54px;
+  height: 76px;
+  object-fit: cover;
+  background: var(--color-cape);
+}
+.cover-placeholder {
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+}
+.comic-summary div:not(.cover-placeholder) {
+  display: grid;
+  gap: 0.3rem;
+}
+.comic-summary strong {
+  font: italic 900 1.2rem var(--font-display);
+  text-transform: uppercase;
+}
+.comic-summary span {
+  color: #bec7d2;
+  font-size: 0.78rem;
+}
+.comic-summary .total {
+  margin-left: auto;
+  color: var(--color-energy);
+  font-weight: 800;
+  white-space: nowrap;
+}
+.comic-summary a {
+  color: #fff;
+  font-size: 0.74rem;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  white-space: nowrap;
+}
+.issue-section {
+  margin-top: 3.25rem;
+}
+.section-heading {
+  margin-bottom: 1.25rem;
+}
+.section-heading > span {
+  color: var(--color-muted);
+  font: 700 0.73rem var(--font-mono);
+  text-transform: uppercase;
+}
+.issue-list {
+  border-top: 2px solid var(--color-ink);
+}
+.issue-row {
+  display: grid;
+  grid-template-columns: 72px minmax(240px, 1fr) 95px 155px;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.3rem 0.35rem;
+  border-bottom: 1px solid var(--color-line);
+}
+.issue-number {
+  font: italic 900 3rem var(--font-display);
+  color: var(--color-cape);
+}
+.issue-meta {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  color: var(--color-muted);
+  font: 700 0.66rem var(--font-mono);
+  text-transform: uppercase;
+}
+.status {
+  color: var(--color-navy);
+  padding: 0.3rem 0.5rem;
+  background: var(--color-energy);
+}
+.status.draft {
+  color: #fff;
+  background: var(--color-blue);
+}
+.issue-copy h3 {
+  margin: 0.65rem 0 0.2rem;
+  font-size: 1.5rem;
+}
+.issue-copy p {
+  margin-bottom: 0;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+.pages-count {
+  font: 700 0.75rem var(--font-mono);
+  white-space: nowrap;
+}
+.row-actions {
+  display: grid;
+  gap: 0.45rem;
+  justify-items: start;
+}
+.row-actions a,
+.row-actions button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-blue);
+  font: 800 0.75rem var(--font-body);
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.row-actions .danger {
+  color: var(--color-cape);
+}
+.empty-state,
+.missing {
+  padding-block: 4rem;
+  text-align: center;
+}
+.empty-state {
+  border: 2px dashed var(--color-line);
+}
+.empty-state > span {
+  font-size: 3rem;
+  color: var(--color-cape);
+}
+.empty-state h3 {
+  margin: 0.4rem 0;
+  font-size: 2rem;
+}
+.empty-state p,
+.missing p {
+  color: var(--color-muted);
+}
+@media (max-width: 900px) {
+  .issue-row {
+    grid-template-columns: 55px 1fr;
+  }
+  .pages-count {
+    grid-column: 2;
+  }
+  .row-actions {
+    grid-column: 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+}
+@media (max-width: 620px) {
+  .page-heading,
+  .section-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .comic-summary {
+    flex-wrap: wrap;
+  }
+  .comic-summary .total {
+    margin-left: 0;
+  }
+  .comic-summary a {
+    margin-left: auto;
+  }
+  .issue-row {
+    gap: 0.65rem;
+  }
+  .issue-number {
+    font-size: 2.1rem;
+  }
+  .issue-copy h3 {
+    font-size: 1.25rem;
+  }
+}

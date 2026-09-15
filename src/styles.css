@@ -1,1 +1,100 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-paper: #f3efe5;
+  --color-paper-raised: #fffaf0;
+  --color-ink: #0d1420;
+  --color-muted: #64666a;
+  --color-line: #c8c2b6;
+  --color-navy: #071a33;
+  --color-blue: #123f73;
+  --color-cape: #c92336;
+  --color-energy: #f4c542;
+  --color-accent: var(--color-energy);
+  --color-rust: var(--color-cape);
+  --color-text: var(--color-ink);
+  --color-text-muted: var(--color-muted);
+  --shadow-ink: 7px 7px 0 var(--color-ink);
+  --font-display: 'Arial Narrow', 'Roboto Condensed', Impact, sans-serif;
+  --font-serif: Georgia, 'Times New Roman', serif;
+  --font-body:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  color-scheme: light;
+  color: var(--color-ink);
+  background: var(--color-paper);
+  font-family: var(--font-body);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+}
+body {
+  min-width: 320px;
+  min-height: 100dvh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 1px 1px, rgb(7 26 51 / 4%) 1px, transparent 1.15px) 0 0 / 15px 15px,
+    var(--color-paper);
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+img,
+svg {
+  max-width: 100%;
+}
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+::selection {
+  color: var(--color-navy);
+  background: var(--color-energy);
+}
+
+.page-shell {
+  width: min(100% - clamp(2rem, 8vw, 8rem), 1280px);
+  margin-inline: auto;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-energy);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

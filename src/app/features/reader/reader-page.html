@@ -1,0 +1,99 @@
+<section
+  #readerRoot
+  class="reader-shell"
+  [class.is-fallback-fullscreen]="fallbackFullscreen()"
+  [attr.aria-busy]="loading()"
+>
+  @if (loading()) {
+    <div class="reader-status" role="status" aria-live="polite">
+      <span class="spinner" aria-hidden="true"></span>
+      <p>Preparando a edição…</p>
+    </div>
+  } @else if (loadError(); as errorMessage) {
+    <div class="reader-status reader-error" role="alert">
+      <span class="status-mark" aria-hidden="true">!</span>
+      <h1>Não foi possível abrir o leitor</h1>
+      <p>{{ errorMessage }}</p>
+      <a class="back-action" [routerLink]="comicSlug() ? ['/hq', comicSlug()] : ['/hqs']">
+        Voltar {{ comicSlug() ? 'para a HQ' : 'ao catálogo' }}
+      </a>
+    </div>
+  } @else if (issue(); as currentIssue) {
+    <header class="reader-header">
+      <a
+        class="back-link"
+        [routerLink]="['/hq', comicSlug()]"
+        aria-label="Voltar para a página da HQ"
+      >
+        <span aria-hidden="true">←</span>
+        <span>Voltar para a HQ</span>
+      </a>
+
+      <div class="reader-heading">
+        <span>{{ comic()?.title }}</span>
+        <strong>{{ currentIssue.title }}</strong>
+      </div>
+
+      <span class="keyboard-hint" aria-hidden="true">← → para navegar</span>
+    </header>
+
+    <main
+      class="reader-stage"
+      [class.is-zoomed]="zoom() > 1"
+      aria-label="Página atual da HQ"
+      (pointerdown)="onPointerDown($event)"
+      (pointerup)="onPointerUp($event)"
+      (pointercancel)="cancelPointer()"
+    >
+      @if (imageState() === 'loading') {
+        <div class="image-feedback" role="status" aria-live="polite">
+          <span class="spinner" aria-hidden="true"></span>
+          <span>Carregando página {{ currentPageIndex() + 1 }}…</span>
+        </div>
+      }
+
+      @if (imageState() === 'error') {
+        <div class="image-feedback image-error" role="alert">
+          <span class="status-mark" aria-hidden="true">!</span>
+          <strong>A imagem desta página não carregou.</strong>
+          <button type="button" (click)="retryImage()">Tentar novamente</button>
+        </div>
+      } @else if (currentPage(); as page) {
+        <div class="page-canvas">
+          <img
+            class="reader-image"
+            [class.is-loading]="imageState() === 'loading'"
+            [class.fit-contain]="fitMode() === 'contain'"
+            [class.fit-width]="fitMode() === 'width'"
+            [class.fit-height]="fitMode() === 'height'"
+            [style.--reader-zoom]="zoom()"
+            [src]="page.imageUrl"
+            [alt]="pageAlt()"
+            loading="lazy"
+            decoding="async"
+            draggable="false"
+            (load)="markImageLoaded()"
+            (error)="markImageFailed()"
+          />
+        </div>
+      }
+    </main>
+
+    <app-reader-controls
+      [currentPage]="currentPageIndex() + 1"
+      [totalPages]="totalPages()"
+      [canGoPrevious]="canGoPrevious()"
+      [canGoNext]="canGoNext()"
+      [zoomPercent]="zoomPercent()"
+      [fitMode]="fitMode()"
+      [isFullscreen]="isFullscreen()"
+      (previousRequested)="previousPage()"
+      (nextRequested)="nextPage()"
+      (zoomOutRequested)="zoomOut()"
+      (zoomInRequested)="zoomIn()"
+      (resetZoomRequested)="resetZoom()"
+      (fitModeRequested)="setFitMode($event)"
+      (fullscreenRequested)="toggleFullscreen()"
+    />
+  }
+</section>

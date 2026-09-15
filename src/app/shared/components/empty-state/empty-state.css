@@ -1,0 +1,83 @@
+:host {
+  display: block;
+}
+
+.empty-state {
+  min-height: 22rem;
+  padding: clamp(2rem, 6vw, 4rem) 1.25rem;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  border: 1px dashed rgba(255, 255, 255, 0.14);
+  border-radius: 0.6rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.illustration {
+  width: 4.5rem;
+  height: 4.5rem;
+  margin-bottom: 1.25rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #77746e;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.illustration svg {
+  width: 2.8rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+}
+
+.illustration .spark {
+  fill: var(--color-accent, #f4c542);
+  stroke: var(--color-accent, #f4c542);
+}
+
+h2 {
+  margin: 0;
+  color: var(--color-text, #f7f4ed);
+  font-size: clamp(1.25rem, 3vw, 1.65rem);
+}
+
+p {
+  max-width: 30rem;
+  margin: 0.7rem 0 0;
+  color: var(--color-text-muted, #9e9b95);
+  line-height: 1.6;
+}
+
+a {
+  margin-top: 1.35rem;
+  padding: 0.78rem 1.05rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  border-radius: 0.3rem;
+  color: #0a0a0b;
+  background: var(--color-accent, #f4c542);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+a svg {
+  width: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}

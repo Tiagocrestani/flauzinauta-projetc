@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Liga do Horizonte — página 8</title>
+  <desc id="desc">A luz retorna a Aurora e os cinco heróis observam juntos o novo amanhecer.</desc>
+  <style>text { stroke: none; }</style>
+  <defs><linearGradient id="dawn" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#182b55"/><stop offset=".43" stop-color="#ef6a43"/><stop offset=".72" stop-color="#ffd363"/><stop offset="1" stop-color="#bfe6db"/></linearGradient><radialGradient id="sun"><stop stop-color="#fffbd8"/><stop offset=".42" stop-color="#ffd45d"/><stop offset="1" stop-color="#f27045"/></radialGradient></defs>
+  <rect width="800" height="1200" fill="#eee6d6"/>
+  <rect x="24" y="24" width="752" height="1152" fill="#080b13"/>
+  <g stroke="#080b13" stroke-width="12">
+    <g>
+      <rect x="38" y="38" width="724" height="431" fill="url(#dawn)"/>
+      <circle cx="402" cy="335" r="127" fill="url(#sun)" stroke="none"/>
+      <path d="M38 340h67V202h54v138h48V253h72v87h43V161h74v179h39V239h61v101h49V184h81v156h43V222h60v118h73v129H38z" fill="#17263a" stroke="none"/>
+      <g fill="#fff3aa" stroke="none"><rect x="126" y="226" width="10" height="17"/><rect x="342" y="193" width="11" height="19"/><rect x="576" y="216" width="10" height="18"/><rect x="691" y="251" width="10" height="17"/></g>
+      <path d="M38 396c146-42 264-27 369 22 108 49 217 48 355 2v49H38z" fill="#0e1b29" stroke="none"/>
+      <rect x="57" y="58" width="334" height="76" rx="4" fill="#fff4d9" stroke="none"/>
+      <text x="79" y="88" fill="#111" font-family="Arial, sans-serif" font-size="19" font-weight="700">AURORA, 05H42.</text>
+      <text x="79" y="115" fill="#111" font-family="Arial, sans-serif" font-size="19">A cidade respirou novamente.</text>
+    </g>
+    <g>
+      <rect x="38" y="481" width="352" height="318" fill="#d89159"/>
+      <path d="M38 708c107-79 224-88 352-25v116H38z" fill="#594233" stroke="none"/>
+      <g fill="#151820" stroke="none"><circle cx="101" cy="656" r="19"/><path d="M79 682h44l20 117H59z"/><circle cx="184" cy="637" r="19"/><path d="M162 663h45l19 136h-84z"/><circle cx="275" cy="654" r="19"/><path d="M253 680h45l24 119h-92z"/></g>
+      <path d="M79 690 43 651m80 43 47-45m-9 38-42-42m89 40 48-54m-2 77-35-48m79 46 42-46" fill="none" stroke="#151820" stroke-width="11"/>
+      <rect x="60" y="502" width="284" height="80" rx="38" fill="#fff" stroke="none"/>
+      <path d="m180 577 12 30 17-29" fill="#fff" stroke="none"/>
+      <text x="102" y="534" fill="#111" font-family="Arial, sans-serif" font-size="20" font-weight="700">Vocês viram aquilo?</text>
+      <text x="94" y="560" fill="#111" font-family="Arial, sans-serif" font-size="18">Eles ficaram até o fim.</text>
+    </g>
+    <g>
+      <rect x="402" y="481" width="360" height="318" fill="#23354b"/>
+      <path d="M402 707c104-39 225-34 360 16v76H402z" fill="#111d29" stroke="none"/>
+      <g transform="translate(575 654)">
+        <circle cy="-53" r="23" fill="#090b11" stroke="none"/>
+        <path d="m-23-31-49 47 28 31 31-23-10 119h61L27 24l32 23 28-31-50-47z" fill="#090b11" stroke="none"/>
+        <path d="M-18-25-75 14l-51 83 98-45zm36 0 58 39 52 83-100-45z" fill="#7b182a" stroke="#dc3941" stroke-width="3"/>
+      </g>
+      <rect x="425" y="503" width="303" height="80" rx="38" fill="#fff" stroke="none"/>
+      <path d="m571 577 17 32 13-32" fill="#fff" stroke="none"/>
+      <text x="463" y="535" fill="#111" font-family="Arial, sans-serif" font-size="19" font-weight="700">O sinal foi embora.</text>
+      <text x="465" y="561" fill="#111" font-family="Arial, sans-serif" font-size="18">Mas agora sabe onde estamos.</text>
+    </g>
+    <g>
+      <rect x="38" y="811" width="724" height="351" fill="#17253b"/>
+      <circle cx="400" cy="996" r="137" fill="#f6bf4e" opacity=".3" stroke="none"/>
+      <path d="M38 1053 188 928l98 125 114-169 113 169 100-125 149 125v109H38z" fill="#111b28" stroke="none"/>
+      <path d="M38 1081c151-37 263-24 365 17 104 43 218 43 359 1v63H38z" fill="#070b12" stroke="none"/>
+      <g fill="#06090f" stroke="none"><path d="M121 1085 160 972l40 113z"/><path d="M231 1085 272 947l43 138z"/><path d="M345 1085 400 906l55 179z"/><path d="M485 1085 527 948l44 137z"/><path d="M605 1085 645 973l39 112z"/></g>
+      <rect x="96" y="832" width="608" height="84" rx="41" fill="#fff" stroke="none"/>
+      <path d="m385 910 17 34 16-34" fill="#fff" stroke="none"/>
+      <text x="163" y="865" fill="#111" font-family="Arial, sans-serif" font-size="21" font-weight="700">Enquanto houver um horizonte...</text>
+      <text x="227" y="893" fill="#a41b34" font-family="Arial, sans-serif" font-size="21" font-weight="700">...ninguém luta sozinho.</text>
+      <text x="529" y="1131" fill="#ffd052" stroke="none" font-family="Impact, Arial Black, sans-serif" font-size="28" letter-spacing="4">FIM?</text>
+    </g>
+  </g>
+  <text x="50" y="1148" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="700">08</text>
+</svg>

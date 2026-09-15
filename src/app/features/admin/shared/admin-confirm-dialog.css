@@ -1,0 +1,82 @@
+.admin-confirm-dialog {
+  width: min(calc(100vw - 2rem), 430px);
+  max-width: none;
+  max-height: calc(100dvh - 2rem);
+  padding: 0;
+  color: var(--color-ink);
+  background: var(--color-paper-raised);
+  border: 2px solid var(--color-navy);
+  box-shadow: 10px 10px 0 var(--color-navy);
+}
+
+.admin-confirm-dialog::backdrop {
+  background: rgb(7 26 51 / 68%);
+  backdrop-filter: blur(3px);
+}
+
+.dialog-stripe {
+  height: 8px;
+  background: linear-gradient(90deg, var(--color-cape) 0 50%, var(--color-energy) 50% 100%);
+}
+
+.dialog-content {
+  padding: clamp(1.4rem, 4vw, 2rem);
+}
+
+.dialog-eyebrow {
+  color: var(--color-cape);
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+}
+
+h2 {
+  margin: 0.55rem 0 0.9rem;
+  font: 900 clamp(1.6rem, 5vw, 2.15rem)/0.98 var(--font-display);
+  text-transform: uppercase;
+}
+
+p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.7rem;
+}
+
+button {
+  min-height: 42px;
+  padding: 0.55rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 900;
+  border: 2px solid var(--color-navy);
+  cursor: pointer;
+}
+
+.dialog-cancel {
+  color: var(--color-navy);
+  background: transparent;
+}
+
+.dialog-confirm {
+  color: white;
+  background: var(--color-cape);
+}
+
+button:hover {
+  box-shadow: 3px 3px 0 var(--color-navy);
+  transform: translate(-1px, -1px);
+}
+
+@media (max-width: 420px) {
+  .dialog-actions button {
+    width: 100%;
+  }
+}

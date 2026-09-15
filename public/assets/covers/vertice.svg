@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 900" role="img" aria-labelledby="title desc">
+  <title id="title">Capa de Vértice</title>
+  <desc id="desc">Uma vigilante angular observa uma cidade de perspectivas impossíveis cortada por um V luminoso.</desc>
+  <defs>
+    <linearGradient id="night" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#080b18"/><stop offset=".55" stop-color="#15274a"/><stop offset="1" stop-color="#3a123f"/></linearGradient>
+    <linearGradient id="edge" x1="0" x2="1"><stop stop-color="#4ff4de"/><stop offset="1" stop-color="#b745ff"/></linearGradient>
+    <filter id="vGlow"><feGaussianBlur stdDeviation="9"/></filter>
+  </defs>
+  <rect width="650" height="900" fill="url(#night)"/>
+  <g opacity=".82">
+    <path d="M-40 570 206 153l101 747H0z" fill="#0b1428" stroke="#2c5a76" stroke-width="3"/>
+    <path d="m192 900 119-794 155 794z" fill="#10192e" stroke="#49366a" stroke-width="3"/>
+    <path d="m390 900 104-664 202 342v322z" fill="#0a1325" stroke="#31576f" stroke-width="3"/>
+    <path d="M0 684 650 397M34 900 283 192m119 708 104-602m-350 84 402 335" stroke="#62eadb" stroke-width="2" opacity=".25"/>
+  </g>
+  <path d="M116 105 322 610 542 105" fill="none" stroke="#3ff1dc" stroke-width="31" opacity=".17" filter="url(#vGlow)"/>
+  <path d="M116 105 322 610 542 105" fill="none" stroke="url(#edge)" stroke-width="10"/>
+  <g fill="#80fff0" opacity=".72"><rect x="76" y="548" width="9" height="25"/><rect x="123" y="461" width="8" height="19"/><rect x="476" y="486" width="10" height="29"/><rect x="531" y="575" width="8" height="18"/><rect x="278" y="325" width="8" height="24"/></g>
+  <g transform="translate(323 342)">
+    <path d="M-67 68-13 7l13-64 17 64 56 61-34 148h-78z" fill="#070a12"/>
+    <path d="m-13-57 13-22 17 22 8 48-25 22-24-22z" fill="#121f33" stroke="#50ead8" stroke-width="3"/>
+    <path d="M-11-30-2-38v17h-13zm24 0 9-8-2 17H7z" fill="#a3fff2"/>
+    <path d="m-45 78-90 120 48-11-29 82 90-91zm90 0 92 122-51-12 32 81-91-91z" fill="#0a0d1b" stroke="#7e4da6" stroke-width="3"/>
+    <path d="M-21 47 0 72l22-25-22 70z" fill="none" stroke="#50ead8" stroke-width="5"/>
+  </g>
+  <path d="m0 702 650-88v286H0z" fill="#070a13"/>
+  <path d="m0 702 650-88" stroke="url(#edge)" stroke-width="5"/>
+  <text x="40" y="745" fill="#8ffbed" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="5">TODA CIDADE TEM UM PONTO CEGO</text>
+  <text x="32" y="838" fill="#f3f5ff" font-family="Impact, Arial Black, sans-serif" font-size="112" letter-spacing="5">VÉRTICE</text>
+  <path d="M34 855h582" stroke="url(#edge)" stroke-width="12"/>
+  <rect x="15" y="15" width="620" height="870" fill="none" stroke="#57e8dc" stroke-width="3"/>
+</svg>

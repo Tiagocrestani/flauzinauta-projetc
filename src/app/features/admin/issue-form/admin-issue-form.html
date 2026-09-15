@@ -1,0 +1,404 @@
+@if (comic(); as comic) {
+  @if (!issueId || issue()) {
+    <div class="issue-form-page">
+      <nav class="breadcrumbs" aria-label="Caminho">
+        <a routerLink="/admin">Painel</a><span aria-hidden="true">/</span>
+        <a routerLink="/admin/hqs">HQs</a><span aria-hidden="true">/</span>
+        <a [routerLink]="['/admin/hqs', comic.id, 'edicoes']">{{ comic.title }}</a>
+      </nav>
+
+      <header class="page-heading">
+        <div>
+          <p class="eyebrow">{{ isNew ? 'Nova missão editorial' : 'Arquivo de edição' }}</p>
+          <h1>{{ isNew ? 'Nova edição' : 'Editar edição' }}</h1>
+          <p>{{ comic.title }} · Monte os dados e organize a sequência das páginas.</p>
+        </div>
+        <a [routerLink]="['/admin/hqs', comic.id, 'edicoes']">← Voltar às edições</a>
+      </header>
+
+      @if (feedback()) {
+        <p
+          class="feedback"
+          [class.feedback--error]="feedbackIsError()"
+          [attr.role]="feedbackIsError() ? 'alert' : 'status'"
+        >
+          {{ feedback() }}
+        </p>
+      }
+
+      <form [formGroup]="form" (ngSubmit)="save()" novalidate>
+        <div class="form-layout">
+          <div class="main-column">
+            <section class="panel" aria-labelledby="issue-data-heading">
+              <div class="section-title">
+                <span>01</span>
+                <div>
+                  <p class="eyebrow">Informações gerais</p>
+                  <h2 id="issue-data-heading">Identidade da edição</h2>
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <div class="field narrow">
+                  <label for="issue-number"
+                    >Número da edição <span aria-hidden="true">*</span></label
+                  >
+                  <input
+                    id="issue-number"
+                    type="number"
+                    min="1"
+                    step="1"
+                    formControlName="number"
+                    required
+                    [attr.aria-invalid]="
+                      (form.controls.number.touched || submitted()) &&
+                      (form.controls.number.invalid || numberDuplicate())
+                    "
+                    [attr.aria-describedby]="
+                      (form.controls.number.touched || submitted()) &&
+                      (form.controls.number.invalid || numberDuplicate())
+                        ? 'issue-number-error'
+                        : null
+                    "
+                  />
+                  @if (
+                    (form.controls.number.touched || submitted()) && form.controls.number.invalid
+                  ) {
+                    <small id="issue-number-error" class="error">
+                      Informe um número inteiro maior que zero.
+                    </small>
+                  } @else if ((form.controls.number.touched || submitted()) && numberDuplicate()) {
+                    <small id="issue-number-error" class="error">
+                      Já existe uma edição com esse número nesta HQ.
+                    </small>
+                  }
+                </div>
+                <div class="field">
+                  <label for="issue-title">Título <span aria-hidden="true">*</span></label>
+                  <input
+                    id="issue-title"
+                    type="text"
+                    formControlName="title"
+                    maxlength="120"
+                    placeholder="Ex.: O Sol Negro"
+                    required
+                    [attr.aria-invalid]="
+                      (form.controls.title.touched || submitted()) && form.controls.title.invalid
+                    "
+                    [attr.aria-describedby]="
+                      (form.controls.title.touched || submitted()) && form.controls.title.invalid
+                        ? 'issue-title-error'
+                        : null
+                    "
+                  />
+                  @if (
+                    (form.controls.title.touched || submitted()) && form.controls.title.invalid
+                  ) {
+                    <small id="issue-title-error" class="error">Informe o título da edição.</small>
+                  }
+                </div>
+                <div class="field full">
+                  <label for="issue-slug">Slug <span aria-hidden="true">*</span></label>
+                  <input
+                    id="issue-slug"
+                    type="text"
+                    formControlName="slug"
+                    (input)="markSlugEdited()"
+                    placeholder="o-sol-negro"
+                    autocomplete="off"
+                    spellcheck="false"
+                    required
+                    [attr.aria-invalid]="
+                      (form.controls.slug.touched || submitted()) &&
+                      (form.controls.slug.invalid || slugDuplicate())
+                    "
+                    [attr.aria-describedby]="
+                      (form.controls.slug.touched || submitted()) &&
+                      (form.controls.slug.invalid || slugDuplicate())
+                        ? 'issue-slug-help issue-slug-error'
+                        : 'issue-slug-help'
+                    "
+                  />
+                  <small id="issue-slug-help">
+                    Gerado pelo título; pode ser ajustado manualmente.
+                  </small>
+                  @if ((form.controls.slug.touched || submitted()) && form.controls.slug.invalid) {
+                    <small id="issue-slug-error" class="error"
+                      >Use apenas letras minúsculas, números e hífens entre palavras.</small
+                    >
+                  } @else if ((form.controls.slug.touched || submitted()) && slugDuplicate()) {
+                    <small id="issue-slug-error" class="error">
+                      Esse slug já está em uso nesta HQ.
+                    </small>
+                  }
+                </div>
+                <div class="field full">
+                  <label for="issue-description">Descrição</label>
+                  <textarea
+                    id="issue-description"
+                    formControlName="description"
+                    rows="4"
+                    maxlength="2000"
+                    placeholder="O que acontece nesta edição?"
+                  ></textarea>
+                </div>
+                <div class="field">
+                  <label for="issue-date"
+                    >Data de publicação <span aria-hidden="true">*</span></label
+                  >
+                  <input
+                    id="issue-date"
+                    type="date"
+                    formControlName="publishedAt"
+                    required
+                    [attr.aria-invalid]="
+                      (form.controls.publishedAt.touched || submitted()) &&
+                      form.controls.publishedAt.invalid
+                    "
+                    [attr.aria-describedby]="
+                      (form.controls.publishedAt.touched || submitted()) &&
+                      form.controls.publishedAt.invalid
+                        ? 'issue-date-error'
+                        : null
+                    "
+                  />
+                  @if (
+                    (form.controls.publishedAt.touched || submitted()) &&
+                    form.controls.publishedAt.invalid
+                  ) {
+                    <small id="issue-date-error" class="error">
+                      Informe uma data de publicação.
+                    </small>
+                  }
+                </div>
+                <div class="field">
+                  <label for="issue-status">Status de publicação</label>
+                  <select
+                    id="issue-status"
+                    formControlName="publicationStatus"
+                    required
+                    [attr.aria-invalid]="pageError() ? true : null"
+                    [attr.aria-describedby]="
+                      pageError() ? 'issue-status-help issue-pages-error' : 'issue-status-help'
+                    "
+                  >
+                    <option value="draft">Rascunho</option>
+                    <option value="published">Publicada</option>
+                  </select>
+                  <small id="issue-status-help">Rascunhos podem ser salvos sem páginas.</small>
+                </div>
+                <div class="field full page-count-field">
+                  <span>Quantidade de páginas</span>
+                  <output
+                    >{{ pages().length }} {{ pages().length === 1 ? 'página' : 'páginas' }}</output
+                  >
+                </div>
+              </div>
+            </section>
+
+            <section class="panel pages-panel" aria-labelledby="pages-heading">
+              <div class="section-title">
+                <span>02</span>
+                <div>
+                  <p class="eyebrow">Sequência visual</p>
+                  <h2 id="pages-heading">Páginas da edição</h2>
+                </div>
+              </div>
+
+              <div class="upload-zone">
+                <input
+                  #pageFiles
+                  id="issue-pages"
+                  type="file"
+                  [accept]="acceptedImageFormats"
+                  multiple
+                  (change)="selectPages($event)"
+                  hidden
+                />
+                <div>
+                  <strong>Selecione várias imagens de uma vez</strong>
+                  <p id="issue-pages-help">
+                    JPG, PNG, WebP ou AVIF · até 10 MB por arquivo. Nomes são ordenados
+                    naturalmente.
+                  </p>
+                </div>
+                <button
+                  class="upload-zone__action"
+                  type="button"
+                  aria-describedby="issue-pages-help"
+                  (click)="pageFiles.click()"
+                >
+                  + Selecionar páginas
+                </button>
+              </div>
+              @if (fileErrors().length) {
+                <ul id="issue-file-errors" class="file-errors" role="alert">
+                  @for (error of fileErrors(); track $index) {
+                    <li>{{ error }}</li>
+                  }
+                </ul>
+              }
+              @if (pageError()) {
+                <p id="issue-pages-error" class="error page-error" role="alert">
+                  {{ pageError() }}
+                </p>
+              }
+
+              @if (pages().length) {
+                <ol class="page-list" aria-label="Ordem das páginas">
+                  @for (page of pages(); track page.id; let index = $index) {
+                    <li class="page-item" [class.selected]="activePageIndex() === index">
+                      <button
+                        class="page-thumb"
+                        type="button"
+                        (click)="selectPreview(index)"
+                        [attr.aria-label]="'Pré-visualizar página ' + page.pageNumber"
+                        [attr.aria-pressed]="activePageIndex() === index"
+                      >
+                        <img
+                          [src]="page.imageUrl"
+                          [alt]="'Miniatura da página ' + page.pageNumber"
+                        />
+                      </button>
+                      <div class="page-details">
+                        <strong>Página {{ page.pageNumber.toString().padStart(2, '0') }}</strong>
+                        <span [title]="pageName(page)">{{ pageName(page) }}</span>
+                        <small>{{ pageSize(page) }}</small>
+                      </div>
+                      <div class="page-order">
+                        <button
+                          type="button"
+                          (click)="movePage(index, -1)"
+                          [disabled]="index === 0"
+                          [attr.aria-label]="'Mover página ' + page.pageNumber + ' para cima'"
+                        >
+                          ↑
+                        </button>
+                        <button
+                          type="button"
+                          (click)="movePage(index, 1)"
+                          [disabled]="index === pages().length - 1"
+                          [attr.aria-label]="'Mover página ' + page.pageNumber + ' para baixo'"
+                        >
+                          ↓
+                        </button>
+                        <label>
+                          <span class="sr-only">Posição da página {{ page.pageNumber }}</span>
+                          <input
+                            type="number"
+                            min="1"
+                            [max]="pages().length"
+                            [value]="page.pageNumber"
+                            (change)="movePageToInput(index, $event)"
+                          />
+                        </label>
+                      </div>
+                      <div class="page-actions">
+                        <input
+                          #replaceFile
+                          type="file"
+                          hidden
+                          [accept]="acceptedImageFormats"
+                          (change)="replacePage(index, $event)"
+                        />
+                        <button
+                          type="button"
+                          [attr.aria-label]="'Substituir imagem da página ' + page.pageNumber"
+                          (click)="replaceFile.click()"
+                        >
+                          Substituir
+                        </button>
+                        <button
+                          class="remove"
+                          type="button"
+                          [attr.aria-label]="'Remover página ' + page.pageNumber"
+                          (click)="removePage(index)"
+                        >
+                          Remover
+                        </button>
+                      </div>
+                    </li>
+                  }
+                </ol>
+              } @else {
+                <div class="empty-pages">
+                  <span aria-hidden="true">▧</span>
+                  <p>Nenhuma página selecionada. Você pode salvar a edição como rascunho.</p>
+                </div>
+              }
+            </section>
+          </div>
+
+          <aside class="side-column">
+            <section class="panel cover-panel" aria-labelledby="cover-heading">
+              <p class="eyebrow">Capa complementar</p>
+              <h2 id="cover-heading">Capa da edição</h2>
+              <p>Opcional nesta fase. A capa principal da HQ continuará disponível.</p>
+              <app-admin-image-picker
+                [imageUrl]="coverUrl()"
+                label="Capa opcional da edição"
+                (imageUrlChange)="onCoverUrlChange($event)"
+              />
+            </section>
+
+            <section class="panel preview-panel" aria-labelledby="preview-heading">
+              <p class="eyebrow">Leitor em miniatura</p>
+              <h2 id="preview-heading">Pré-visualização</h2>
+              @if (activePage(); as page) {
+                <div class="preview-canvas">
+                  <img [src]="page.imageUrl" [alt]="'Prévia da página ' + page.pageNumber" />
+                </div>
+                <div class="preview-controls">
+                  <button
+                    type="button"
+                    (click)="showPreviousPage()"
+                    [disabled]="activePageIndex() === 0"
+                  >
+                    ← Anterior
+                  </button>
+                  <span>Página {{ activePageIndex() + 1 }} de {{ pages().length }}</span>
+                  <button
+                    type="button"
+                    (click)="showNextPage()"
+                    [disabled]="activePageIndex() === pages().length - 1"
+                  >
+                    Próxima →
+                  </button>
+                </div>
+              } @else {
+                <div class="preview-empty">A prévia aparecerá após selecionar uma página.</div>
+              }
+            </section>
+          </aside>
+        </div>
+
+        <footer class="form-actions">
+          <span>As imagens ficam apenas nesta sessão; não há upload nesta etapa.</span>
+          <button type="submit" [disabled]="saving()">
+            {{ saving() ? 'Salvando…' : isNew ? 'Criar edição' : 'Salvar edição' }}
+            <span aria-hidden="true">↗</span>
+          </button>
+        </footer>
+      </form>
+    </div>
+  } @else {
+    <section class="missing">
+      <h1>Edição não encontrada.</h1>
+      <a [routerLink]="['/admin/hqs', comic.id, 'edicoes']">Voltar às edições</a>
+    </section>
+  }
+} @else {
+  <section class="missing">
+    <h1>HQ não encontrada.</h1>
+    <a routerLink="/admin/hqs">Voltar às HQs</a>
+  </section>
+}
+
+<app-admin-confirm-dialog
+  [open]="leaveDialogOpen()"
+  title="Descartar alterações?"
+  message="Há alterações não salvas nesta edição. Sair agora descartará os dados selecionados."
+  confirmLabel="Descartar alterações"
+  (confirmed)="confirmLeave()"
+  (cancelled)="cancelLeave()"
+/>

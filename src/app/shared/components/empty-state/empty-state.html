@@ -1,0 +1,20 @@
+<section class="empty-state" aria-live="polite">
+  <div class="illustration" aria-hidden="true">
+    <svg viewBox="0 0 72 72">
+      <path d="M12 11h38a10 10 0 0 1 10 10v40H22A10 10 0 0 1 12 51V11Z" />
+      <path d="M22 11v50M31 27h20M31 36h14" />
+      <path class="spark" d="m55 9 2 5 5 2-5 2-2 5-2-5-5-2 5-2 2-5Z" />
+    </svg>
+  </div>
+  <h2>{{ title() }}</h2>
+  <p>{{ message() }}</p>
+
+  @if (actionLabel() && actionLink()) {
+    <a [routerLink]="actionLink()">
+      {{ actionLabel() }}
+      <svg viewBox="0 0 20 20" aria-hidden="true">
+        <path d="M4 10h11M11 6l4 4-4 4" />
+      </svg>
+    </a>
+  }
+</section>

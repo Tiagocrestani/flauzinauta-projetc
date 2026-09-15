@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Liga do Horizonte — página 1</title>
+  <desc id="desc">Um apagão cobre Aurora e os heróis se reúnem em um terraço.</desc>
+  <style>text { stroke: none; }</style>
+  <defs><linearGradient id="night" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#101c3d"/><stop offset="1" stop-color="#42152d"/></linearGradient><radialGradient id="lastSun"><stop stop-color="#ffd758"/><stop offset="1" stop-color="#e33b31"/></radialGradient></defs>
+  <rect width="800" height="1200" fill="#efe8d8"/>
+  <rect x="24" y="24" width="752" height="1152" rx="2" fill="#090d17"/>
+  <g stroke="#090d17" stroke-width="12">
+    <g>
+      <rect x="38" y="38" width="724" height="398" fill="url(#night)"/>
+      <circle cx="585" cy="188" r="105" fill="url(#lastSun)"/>
+      <path d="M38 278h63v158H38zm51-62h72v220H89zm61 93h70v127h-70zm59-51h86v178h-86zm73-99h72v277h-72zm60 80h58v197h-58zm47-33h85v230h-85zm73 91h74v139h-74zm62-128h84v267h-84zm72 79h66v188h-66zm55-55h71v243h-71z" fill="#08101b"/>
+      <g fill="#ffd862"><rect x="110" y="250" width="12" height="18"/><rect x="311" y="201" width="12" height="22"/><rect x="589" y="218" width="11" height="20"/><rect x="691" y="235" width="11" height="18"/></g>
+      <path d="M38 371h724" stroke="#ef3044" stroke-width="5" opacity=".6"/>
+      <rect x="61" y="61" width="271" height="74" rx="4" fill="#fff8df" stroke="none"/>
+      <text x="82" y="90" fill="#111523" font-family="Arial, sans-serif" font-size="19" font-weight="700">AURORA, 20H17.</text>
+      <text x="82" y="117" fill="#111523" font-family="Arial, sans-serif" font-size="19">A cidade piscou uma última vez.</text>
+    </g>
+    <g>
+      <rect x="38" y="448" width="350" height="286" fill="#172640"/>
+      <circle cx="212" cy="578" r="83" fill="#ed3145" opacity=".18" stroke="#ff5364" stroke-width="5"/>
+      <circle cx="212" cy="578" r="49" fill="none" stroke="#ff5364" stroke-width="7"/>
+      <path d="M188 545h48l25 58-27 92h-45l-27-92z" fill="#090c14" stroke="none"/>
+      <path d="m201 584 11-15 12 15-12 28z" fill="#ff4656" stroke="none"/>
+      <rect x="67" y="467" width="252" height="61" rx="30" fill="#fff" stroke="none"/>
+      <path d="m263 518 24 32-43-22" fill="#fff" stroke="none"/>
+      <text x="91" y="505" fill="#111" font-family="Arial, sans-serif" font-size="20" font-weight="700">A rede inteira caiu.</text>
+    </g>
+    <g>
+      <rect x="400" y="448" width="362" height="286" fill="#13222d"/>
+      <path d="M400 661c92-76 177-82 362-22v95H400z" fill="#08100f" stroke="none"/>
+      <path d="M562 503h43l30 71-22 111h-61l-21-111z" fill="#09100f" stroke="none"/>
+      <path d="M557 521h52l-10 17h-33z" fill="#79d77c" stroke="none"/>
+      <path d="M524 664c-42 7-75 24-99 50m200-50c44 5 80 22 107 49" fill="none" stroke="#74c96d" stroke-width="10"/>
+      <rect x="421" y="468" width="304" height="72" rx="34" fill="#fff" stroke="none"/>
+      <path d="m557 536 13 29-35-27" fill="#fff" stroke="none"/>
+      <text x="447" y="497" fill="#111" font-family="Arial, sans-serif" font-size="19" font-weight="700">Não foi falha. Alguma coisa</text>
+      <text x="471" y="522" fill="#111" font-family="Arial, sans-serif" font-size="19">bebeu a energia.</text>
+    </g>
+    <g>
+      <rect x="38" y="746" width="724" height="416" fill="#0c1628"/>
+      <path d="M38 1012h724v150H38z" fill="#060a12" stroke="none"/>
+      <path d="M38 1040 202 887l91 125 100-168 98 168 103-117 168 145" fill="#162b41" stroke="#29435c" stroke-width="5"/>
+      <g fill="#05080e" stroke="none">
+        <path d="M89 1038 138 921l46 117z"/><path d="M193 1038 239 900l48 138z"/><path d="M300 1038 351 864l55 174z"/><path d="M410 1038 460 886l51 152z"/><path d="M526 1038 575 918l46 120z"/><path d="M628 1038 679 934l43 104z"/>
+      </g>
+      <path d="M282 997c21-75 48-120 77-133 32 15 57 60 75 133z" fill="#861c2f" stroke="none"/>
+      <circle cx="359" cy="875" r="25" fill="#070a11" stroke="none"/>
+      <rect x="75" y="773" width="327" height="78" rx="38" fill="#fff" stroke="none"/>
+      <path d="m328 842 24 34-46-26" fill="#fff" stroke="none"/>
+      <text x="105" y="806" fill="#111" font-family="Arial, sans-serif" font-size="21" font-weight="700">O sol ainda não nasceu.</text>
+      <text x="105" y="833" fill="#111" font-family="Arial, sans-serif" font-size="19">Mas alguém precisa acender a luz.</text>
+      <text x="583" y="1135" fill="#ffd34e" stroke="none" font-family="Impact, Arial Black, sans-serif" font-size="22" letter-spacing="3">CONTINUA</text>
+    </g>
+  </g>
+  <text x="51" y="1148" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="700">01</text>
+</svg>

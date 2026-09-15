@@ -1,0 +1,70 @@
+<a class="skip-link" href="#main-content">Pular para o conteúdo</a>
+
+<header class="site-header">
+  <div class="header-shell">
+    <a class="brand" routerLink="/" aria-label="Flauzinauta — página inicial" (click)="closeMenu()">
+      <svg class="brand-mark" viewBox="0 0 42 42" aria-hidden="true">
+        <path d="M7 5h28l-4 9 6 7-6 7 4 9H7l4-9-6-7 6-7-4-9Z" />
+        <path class="brand-mark__detail" d="m15 27 5-13h8l-2 5h-4l-1 3h4l-2 5h-8Z" />
+      </svg>
+      <span class="brand-name">FLAUZI<span>NAUTA</span></span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      [attr.aria-label]="menuOpen() ? 'Fechar menu de navegação' : 'Abrir menu de navegação'"
+      aria-controls="primary-navigation"
+      [attr.aria-expanded]="menuOpen()"
+      (click)="toggleMenu()"
+    >
+      @if (menuOpen()) {
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m6 6 12 12M18 6 6 18" />
+        </svg>
+      } @else {
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" />
+        </svg>
+      }
+    </button>
+
+    <div class="navigation-panel" id="primary-navigation" [class.is-open]="menuOpen()">
+      <nav class="primary-nav" aria-label="Navegação principal">
+        <a
+          routerLink="/"
+          routerLinkActive="is-active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          ariaCurrentWhenActive="page"
+          (click)="closeMenu()"
+          >Início</a
+        >
+        <a
+          routerLink="/hqs"
+          routerLinkActive="is-active"
+          ariaCurrentWhenActive="page"
+          (click)="closeMenu()"
+          >Catálogo</a
+        >
+      </nav>
+
+      <form class="search" role="search" aria-label="Buscar heróis" (ngSubmit)="submitSearch()">
+        <label class="visually-hidden" for="site-search">Buscar heróis por título</label>
+        <input
+          id="site-search"
+          type="search"
+          inputmode="search"
+          autocomplete="off"
+          placeholder="Buscar heróis"
+          [formControl]="searchControl"
+        />
+        <button type="submit" aria-label="Buscar">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="6.5" />
+            <path d="m16 16 4 4" />
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</header>

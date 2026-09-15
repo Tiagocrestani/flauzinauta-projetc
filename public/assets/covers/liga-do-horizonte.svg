@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 900" role="img" aria-labelledby="title desc">
+  <title id="title">Capa de Liga do Horizonte</title>
+  <desc id="desc">Cinco heróis formam uma equipe diante do horizonte dourado de uma cidade ameaçada.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#071126"/><stop offset=".58" stop-color="#25385a"/><stop offset="1" stop-color="#f16b35"/></linearGradient>
+    <linearGradient id="dawn" x1="0" x2="1"><stop stop-color="#ef3046"/><stop offset=".48" stop-color="#ffd34d"/><stop offset="1" stop-color="#4ff0db"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="12"/></filter>
+  </defs>
+  <rect width="650" height="900" fill="url(#sky)"/>
+  <path d="M0 516 325 201 650 516" fill="#ffd451" opacity=".12" filter="url(#glow)"/>
+  <circle cx="325" cy="479" r="189" fill="#ffc449" opacity=".16"/>
+  <circle cx="325" cy="479" r="133" fill="#ffd55c" opacity=".25"/>
+  <g fill="#0a1320"><path d="M0 575h53v325H0zm44-96h84v421H44zm84 57h61v364h-61zm328-19h72v383h-72zm59-86h92v469h-92zm83 103h52v366h-52z"/></g>
+  <path d="M0 613c127-41 221-18 326 20 109 40 214 35 324-7v274H0z" fill="#090d16"/>
+  <g fill="#10141d" stroke-linejoin="round">
+    <g transform="translate(322 396)"><circle cy="-65" r="30"/><path d="m-29-39-42 63 31 31 12-18-11 157h78L27 37l14 18 31-31-43-63z"/><path d="M-26-34-96 35l-54 125 116-78zm52 0 96 61 46 124L34 83z" fill="#70192a" stroke="#dc3340" stroke-width="3"/><path d="m-11-21 11-14 12 14L0 10z" fill="#ffd24e"/></g>
+    <g transform="translate(168 486)"><circle cy="-51" r="23"/><path d="m-22-28-51 62 33 23 22-23-11 112h62L22 34l23 23 33-23-53-62z"/><path d="M-16-66 0-87l17 21 7 23H-23z"/><path d="m-10-15 10 29 11-29" fill="none" stroke="#55e6dc" stroke-width="4"/></g>
+    <g transform="translate(471 486)"><circle cy="-50" r="23"/><path d="m-22-27-50 58 32 26 21-23-12 114h64L21 34l23 23 32-26-50-58z"/><path d="M-24-63 0-84l24 21-10 18h-29z"/><path d="M-4-67v19" stroke="#ef3f49" stroke-width="6"/></g>
+    <g transform="translate(84 543)"><circle cy="-41" r="19"/><path d="m-18-20-39 43 25 21 17-15-9 83h49l-9-83 17 15 25-21-39-43z"/><path d="m-19-24-42 17L-81 56-28 24zm38 0L61-7 81 56 28 24z" fill="#a51d32" stroke="#ef493e" stroke-width="2"/></g>
+    <g transform="translate(568 540)"><circle cy="-41" r="19"/><path d="m-18-20-40 44 26 20 16-15-8 83h49l-9-83 17 15 25-20-40-44z"/><path d="M-25 100c-37 5-61 17-79 40m129-40c37 5 61 17 79 40" fill="none" stroke="#69c76e" stroke-width="8"/></g>
+  </g>
+  <path d="M0 692 650 633v267H0z" fill="#080b13"/>
+  <path d="M0 692 650 633" stroke="url(#dawn)" stroke-width="8"/>
+  <text x="34" y="731" fill="#ffd357" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="4">NINGUÉM PROTEGE O AMANHÃ SOZINHO</text>
+  <text x="30" y="799" fill="#fff6df" font-family="Impact, Arial Black, sans-serif" font-size="70">LIGA DO</text>
+  <text x="28" y="869" fill="#ffd24e" font-family="Impact, Arial Black, sans-serif" font-size="72" letter-spacing="1">HORIZONTE</text>
+  <rect x="14" y="14" width="622" height="872" fill="none" stroke="#f6c947" stroke-width="3"/>
+</svg>

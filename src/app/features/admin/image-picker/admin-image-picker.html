@@ -1,0 +1,54 @@
+<div class="image-picker">
+  <label class="image-picker__label" for="admin-image-file">{{ label }}</label>
+
+  @if (previewUrl()) {
+    <div class="image-picker__preview">
+      <img [src]="previewUrl()" [alt]="'Prévia de ' + label.toLowerCase()" />
+    </div>
+    @if (metadata(); as file) {
+      <dl class="image-picker__metadata">
+        <div>
+          <dt>Arquivo</dt>
+          <dd>{{ file.name }}</dd>
+        </div>
+        <div>
+          <dt>Formato</dt>
+          <dd>{{ file.type }}</dd>
+        </div>
+        <div>
+          <dt>Tamanho</dt>
+          <dd>{{ file.size }}</dd>
+        </div>
+      </dl>
+    } @else {
+      <p class="image-picker__existing">Imagem atual da HQ</p>
+    }
+  } @else {
+    <div class="image-picker__empty" aria-hidden="true">
+      <span>+</span>
+      <p>Nenhuma imagem selecionada</p>
+    </div>
+  }
+
+  <div class="image-picker__actions">
+    <input
+      #fileInput
+      id="admin-image-file"
+      type="file"
+      [accept]="acceptedFormats"
+      [attr.aria-describedby]="error() ? 'admin-image-error admin-image-help' : 'admin-image-help'"
+      [attr.aria-invalid]="error() ? true : null"
+      (change)="selectImage($event)"
+    />
+    @if (previewUrl()) {
+      <button type="button" class="image-picker__remove" (click)="removeImage()">
+        Remover imagem
+      </button>
+    }
+  </div>
+
+  <p id="admin-image-help" class="image-picker__help">JPG, JPEG, PNG, WebP ou AVIF. Até 10 MB.</p>
+  @if (error()) {
+    <p id="admin-image-error" class="image-picker__error" role="alert">{{ error() }}</p>
+  }
+</div>

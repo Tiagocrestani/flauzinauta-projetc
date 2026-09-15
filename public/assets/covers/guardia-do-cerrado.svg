@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 900" role="img" aria-labelledby="title desc">
+  <title id="title">Capa de Guardiã do Cerrado</title>
+  <desc id="desc">Uma protetora ergue raízes luminosas entre árvores retorcidas sob um céu em chamas.</desc>
+  <defs>
+    <linearGradient id="land" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#172f38"/><stop offset=".43" stop-color="#d04d28"/><stop offset="1" stop-color="#32191c"/></linearGradient>
+    <radialGradient id="halo"><stop stop-color="#ffd75b"/><stop offset=".55" stop-color="#f3762d"/><stop offset="1" stop-color="#b52b28"/></radialGradient>
+    <linearGradient id="leaf" x1="0" x2="1"><stop stop-color="#69c86c"/><stop offset="1" stop-color="#163e32"/></linearGradient>
+  </defs>
+  <rect width="650" height="900" fill="url(#land)"/>
+  <circle cx="335" cy="328" r="180" fill="url(#halo)"/>
+  <path d="M0 489c124-50 188-31 278 27 102 65 214 55 372-27v411H0z" fill="#3a201b"/>
+  <path d="M0 566c107-44 204-12 293 31 113 54 218 40 357-28v331H0z" fill="#142923"/>
+  <g fill="none" stroke="#101b19" stroke-linecap="round">
+    <path d="M87 526c-9-98 9-172 62-234m-62 124-52-58m67 12 74-75" stroke-width="17"/>
+    <path d="M559 539c5-104-18-182-74-238m71 119 55-68m-74 30-70-69" stroke-width="19"/>
+  </g>
+  <g transform="translate(331 405)">
+    <path d="M-28-114c-24 10-35 30-28 57 5 18 15 29 28 34l-13 31-58 55 36 31 39-31-18 151h93L34 62l42 33 35-33L52 8 29-24c13-7 22-21 26-40 4-25-10-47-36-53z" fill="#10201d"/>
+    <path d="M-43-76c20-10 39-13 62-5l-12 16-34 1z" fill="#90e07c"/>
+    <path d="M-11 13 5-7l17 20L5 57z" fill="#f7c949"/>
+    <path d="M-25 210c-63 5-114 33-154 82 62-12 119-8 171 18m31-100c66 3 119 31 159 80-67-11-124-3-174 19" fill="none" stroke="#72d071" stroke-width="13"/>
+    <path d="M-116 260c-39-27-67-60-83-101m261 101c42-27 72-61 89-104" fill="none" stroke="#e1ad39" stroke-width="6"/>
+  </g>
+  <g fill="url(#leaf)"><ellipse cx="114" cy="320" rx="42" ry="15" transform="rotate(-38 114 320)"/><ellipse cx="172" cy="278" rx="39" ry="14" transform="rotate(24 172 278)"/><ellipse cx="500" cy="314" rx="43" ry="15" transform="rotate(36 500 314)"/><ellipse cx="555" cy="275" rx="38" ry="14" transform="rotate(-22 555 275)"/></g>
+  <path d="M0 692 650 632v268H0z" fill="#101713"/>
+  <path d="M0 692 650 632" stroke="#8cc75e" stroke-width="6"/>
+  <text x="35" y="731" fill="#f6c94f" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="4">A TERRA NÃO PEDE PERMISSÃO</text>
+  <text x="31" y="797" fill="#eff7d6" font-family="Impact, Arial Black, sans-serif" font-size="74">GUARDIÃ DO</text>
+  <text x="29" y="868" fill="#83c768" font-family="Impact, Arial Black, sans-serif" font-size="79" letter-spacing="2">CERRADO</text>
+  <rect x="14" y="14" width="622" height="872" fill="none" stroke="#ebbd4a" stroke-width="3"/>
+</svg>

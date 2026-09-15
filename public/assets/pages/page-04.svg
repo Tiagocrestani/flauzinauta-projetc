@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Liga do Horizonte — página 4</title>
+  <desc id="desc">Guardiã do Cerrado e Pulso Escarlate salvam o ônibus enquanto a ponte se parte.</desc>
+  <style>text { stroke: none; }</style>
+  <defs><linearGradient id="danger" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#312033"/><stop offset="1" stop-color="#0d1a25"/></linearGradient></defs>
+  <rect width="800" height="1200" fill="#eee6d6"/>
+  <rect x="24" y="24" width="752" height="1152" fill="#080b12"/>
+  <g stroke="#080b12" stroke-width="12">
+    <g>
+      <rect x="38" y="38" width="724" height="489" fill="url(#danger)"/>
+      <path d="M38 336 291 271l123 64 348-118v310H38z" fill="#14202a" stroke="none"/>
+      <path d="M37 296c207 13 385-18 725-117" fill="none" stroke="#999da3" stroke-width="27"/>
+      <path d="m302 256 124 59-48 88-139-72z" fill="#d94830" stroke="#080b12" stroke-width="8"/>
+      <g fill="#9bd8ee" stroke="none"><rect x="286" y="284" width="27" height="21"/><rect x="319" y="300" width="27" height="21"/><rect x="352" y="316" width="27" height="21"/></g>
+      <path d="M38 306h161m300-75 263-77" fill="none" stroke="#ef3348" stroke-width="5"/>
+      <path d="M235 356c34-7 56-22 70-51m86 87c29-11 48-30 55-57" fill="none" stroke="#ffcf4e" stroke-width="7"/>
+      <text x="72" y="109" fill="#fff3dc" stroke="none" font-family="Impact, Arial Black, sans-serif" font-size="65" transform="rotate(-4 72 109)">TRINTA.</text>
+      <text x="491" y="464" fill="#ef4050" stroke="none" font-family="Impact, Arial Black, sans-serif" font-size="54" transform="rotate(-9 491 464)">KRRRAK!</text>
+    </g>
+    <g>
+      <rect x="38" y="539" width="352" height="302" fill="#173128"/>
+      <g transform="translate(214 679)">
+        <circle cy="-62" r="25" fill="#080e0c" stroke="none"/>
+        <path d="m-25-37-63 51 32 39 39-29-14 139h70L25 24l40 29 32-39-64-51z" fill="#080e0c" stroke="none"/>
+        <path d="M-26 147c-67-9-121 7-170 48m235-48c65-8 120 8 169 49" fill="none" stroke="#73d06f" stroke-width="13"/>
+        <path d="M-120 177c-7-49 4-87 33-119m201 119c8-49-4-87-33-119" fill="none" stroke="#d8ad45" stroke-width="6"/>
+      </g>
+      <text x="59" y="585" fill="#f7cb50" stroke="none" font-family="Impact, Arial Black, sans-serif" font-size="41">VINTE.</text>
+      <rect x="60" y="595" width="282" height="61" rx="30" fill="#fff" stroke="none"/>
+      <path d="m181 651 21 29 8-29" fill="#fff" stroke="none"/>
+      <text x="91" y="633" fill="#111" font-family="Arial, sans-serif" font-size="20" font-weight="700">Raiz, pedra, concreto...</text>
+    </g>
+    <g>
+      <rect x="402" y="539" width="360" height="302" fill="#2a1423"/>
+      <g transform="translate(582 681)">
+        <circle cy="-61" r="25" fill="#080a10" stroke="none"/>
+        <path d="m-24-37-61 53 34 36 35-28-13 140h68L26 24l36 28 33-37-62-52z" fill="#080a10" stroke="none"/>
+        <circle cx="-71" cy="20" r="24" fill="none" stroke="#ef3b4c" stroke-width="8"/>
+        <circle cx="82" cy="20" r="24" fill="none" stroke="#ef3b4c" stroke-width="8"/>
+      </g>
+      <path d="M425 797c71-82 155-116 308-105" fill="none" stroke="#ef3a4c" stroke-width="10" opacity=".55"/>
+      <text x="426" y="585" fill="#ef3e4e" stroke="none" font-family="Impact, Arial Black, sans-serif" font-size="41">DEZ.</text>
+      <rect x="428" y="594" width="300" height="61" rx="30" fill="#fff" stroke="none"/>
+      <path d="m594 650 14 28 13-29" fill="#fff" stroke="none"/>
+      <text x="463" y="633" fill="#111" font-family="Arial, sans-serif" font-size="20" font-weight="700">...tudo tem um ritmo!</text>
+    </g>
+    <g>
+      <rect x="38" y="853" width="724" height="309" fill="#182a36"/>
+      <path d="M38 1056c136-49 250-40 366 17 117 57 229 58 358 5v84H38z" fill="#0a161c" stroke="none"/>
+      <path d="M73 1050c102-111 210-153 330-128 122-25 231 16 326 128" fill="none" stroke="#72c66b" stroke-width="18"/>
+      <path d="m294 910 126 24 82 72-92 53-159-65z" fill="#d94b30" stroke="#080b12" stroke-width="7"/>
+      <g fill="#f5dbc3" stroke="none"><circle cx="332" cy="962" r="10"/><circle cx="356" cy="972" r="10"/><circle cx="381" cy="982" r="10"/></g>
+      <text x="65" y="918" fill="#ffd050" stroke="none" font-family="Impact, Arial Black, sans-serif" font-size="43">ZERO.</text>
+      <rect x="472" y="876" width="250" height="70" rx="34" fill="#fff" stroke="none"/>
+      <path d="m529 941-17 28 41-25" fill="#fff" stroke="none"/>
+      <text x="505" y="907" fill="#111" font-family="Arial, sans-serif" font-size="20" font-weight="700">Estamos vivos!</text>
+      <text x="500" y="931" fill="#111" font-family="Arial, sans-serif" font-size="18">Eles nos seguraram!</text>
+      <text x="66" y="1131" fill="#fff" stroke="none" font-family="Arial, sans-serif" font-size="19" font-weight="700">Mas o terceiro sinal já chamava do centro da cidade.</text>
+    </g>
+  </g>
+  <text x="50" y="1148" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-weight="700">04</text>
+</svg>

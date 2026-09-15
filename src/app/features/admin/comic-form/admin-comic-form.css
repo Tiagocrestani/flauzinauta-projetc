@@ -1,0 +1,325 @@
+.comic-form-page {
+  display: grid;
+  gap: 1.5rem;
+  padding-bottom: 3rem;
+}
+
+.comic-form-page__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  color: var(--color-paper-raised);
+  background:
+    radial-gradient(circle at 1px 1px, rgb(255 255 255 / 9%) 1px, transparent 1.2px) 0 0 / 14px 14px,
+    linear-gradient(115deg, var(--color-navy), var(--color-blue));
+  border-bottom: 7px solid var(--color-cape);
+  overflow: hidden;
+}
+
+.comic-form-page__eyebrow {
+  margin: 0 0 0.45rem;
+  color: var(--color-energy);
+  font: 800 0.75rem var(--font-body);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.comic-form-page__header h1 {
+  margin: 0;
+  font: 900 clamp(2.25rem, 5vw, 4.5rem)/0.95 var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.comic-form-page__header p:last-child {
+  max-width: 52ch;
+  margin: 0.8rem 0 0;
+  color: #d7e4f0;
+}
+
+.comic-form-page__stamp {
+  flex: 0 0 auto;
+  color: var(--color-energy);
+  font: 900 clamp(4rem, 10vw, 8rem)/1 var(--font-display);
+  transform: rotate(-12deg);
+  text-shadow: 5px 5px 0 var(--color-cape);
+}
+
+.comic-form-page__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(270px, 1fr);
+  align-items: start;
+  gap: 1.5rem;
+}
+
+.comic-form-page__main,
+.comic-form-page__aside {
+  display: grid;
+  gap: 1.5rem;
+  min-width: 0;
+}
+
+.form-panel {
+  min-width: 0;
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  border: 2px solid var(--color-ink);
+  background: var(--color-paper-raised);
+  box-shadow: 6px 6px 0 var(--color-ink);
+}
+
+.form-panel__heading {
+  display: flex;
+  align-items: start;
+  gap: 0.85rem;
+  margin-bottom: 1.6rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--color-line);
+}
+
+.form-panel__heading > span {
+  display: grid;
+  place-items: center;
+  flex: 0 0 2.2rem;
+  height: 2.2rem;
+  color: var(--color-paper-raised);
+  background: var(--color-cape);
+  font: 900 1rem var(--font-display);
+}
+
+.form-panel__heading h2 {
+  margin: 0;
+  color: var(--color-navy);
+  font: 900 clamp(1.25rem, 2vw, 1.65rem)/1.05 var(--font-display);
+  text-transform: uppercase;
+}
+
+.form-panel__heading p {
+  margin: 0.35rem 0 0;
+  color: var(--color-muted);
+  font-size: 0.82rem;
+}
+
+.form-fields {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.form-fields--two-columns {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.form-field {
+  display: grid;
+  align-content: start;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.form-field label {
+  color: var(--color-navy);
+  font-size: 0.87rem;
+  font-weight: 800;
+}
+
+.form-field label span[aria-hidden='true'] {
+  color: var(--color-cape);
+}
+
+.form-field input:not([type='checkbox']):not([type='color']),
+.form-field textarea,
+.form-field select {
+  width: 100%;
+  min-height: 2.8rem;
+  padding: 0.65rem 0.8rem;
+  border: 1.5px solid var(--color-line);
+  border-radius: 0;
+  color: var(--color-ink);
+  background: #fff;
+}
+
+.form-field textarea {
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.form-field input[aria-invalid='true'],
+.form-field textarea[aria-invalid='true'],
+.form-field select[aria-invalid='true'] {
+  border-color: #a31627;
+}
+
+.form-field input[type='color'] {
+  width: 4.5rem;
+  height: 2.8rem;
+  padding: 0.15rem;
+  border: 1.5px solid var(--color-line);
+  background: #fff;
+  cursor: pointer;
+}
+
+.form-field--checkbox {
+  align-content: center;
+}
+
+.form-field--checkbox label {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 2.8rem;
+  cursor: pointer;
+}
+
+.form-field--checkbox input {
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: var(--color-cape);
+}
+
+.form-field__hint,
+.form-field__error {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.form-field__hint {
+  color: var(--color-muted);
+}
+
+.form-field__error {
+  color: #a31627;
+  font-weight: 700;
+}
+
+.comic-form-page__actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-top: 0.3rem;
+}
+
+.comic-form-page__actions button,
+.comic-form-page__missing a,
+.comic-form-page__dialog button {
+  min-height: 2.9rem;
+  padding: 0.7rem 1.25rem;
+  border: 2px solid var(--color-ink);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.comic-form-page__cancel,
+.comic-form-page__dialog button {
+  color: var(--color-navy);
+  background: var(--color-paper-raised);
+}
+
+.comic-form-page__save,
+.comic-form-page__missing a {
+  color: var(--color-navy);
+  background: var(--color-energy);
+  box-shadow: 4px 4px 0 var(--color-ink);
+}
+
+.comic-form-page__save:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.comic-form-page__notice,
+.comic-form-page__save-error,
+.comic-form-page__missing {
+  margin: 0;
+  padding: 1rem 1.2rem;
+  border-left: 6px solid #16824b;
+  background: #e3f5e9;
+  color: var(--color-navy);
+  font-weight: 700;
+}
+
+.comic-form-page__save-error {
+  border-color: #a31627;
+  background: #ffe7e8;
+}
+
+.comic-form-page__missing {
+  display: grid;
+  justify-items: start;
+  gap: 0.75rem;
+  border-color: var(--color-cape);
+  background: var(--color-paper-raised);
+}
+
+.comic-form-page__missing h2,
+.comic-form-page__missing p {
+  margin: 0;
+}
+
+.comic-form-page__missing a {
+  display: inline-grid;
+  place-items: center;
+  text-decoration: none;
+}
+
+.comic-form-page__dialog {
+  width: min(90vw, 440px);
+  padding: 1.5rem;
+  border: 3px solid var(--color-ink);
+  box-shadow: 8px 8px 0 var(--color-cape);
+  color: var(--color-ink);
+  background: var(--color-paper-raised);
+}
+
+.comic-form-page__dialog::backdrop {
+  background: rgb(7 26 51 / 76%);
+}
+
+.comic-form-page__dialog h2 {
+  margin: 0;
+  font: 900 1.7rem var(--font-display);
+  text-transform: uppercase;
+}
+
+.comic-form-page__dialog p {
+  line-height: 1.5;
+}
+
+.comic-form-page__dialog > div {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.comic-form-page__dialog .comic-form-page__discard {
+  color: white;
+  background: var(--color-cape);
+}
+
+@media (max-width: 1000px) {
+  .comic-form-page__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .comic-form-page__aside {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .comic-form-page__stamp {
+    display: none;
+  }
+
+  .comic-form-page__aside,
+  .form-fields--two-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .comic-form-page__actions button {
+    flex: 1 1 10rem;
+  }
+}

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 900" role="img" aria-labelledby="title desc">
+  <title id="title">Capa de Arara Rubra</title>
+  <desc id="desc">Uma heroína alada de vermelho atravessa a noite sobre uma cidade cercada pela floresta.</desc>
+  <defs>
+    <linearGradient id="dusk" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#10112b"/><stop offset=".55" stop-color="#29143a"/><stop offset="1" stop-color="#091a22"/></linearGradient>
+    <linearGradient id="feather" x1="0" x2="1"><stop stop-color="#ff442f"/><stop offset=".58" stop-color="#b90f2d"/><stop offset="1" stop-color="#55142e"/></linearGradient>
+    <radialGradient id="moon"><stop stop-color="#ffe89e"/><stop offset="1" stop-color="#e66a50"/></radialGradient>
+  </defs>
+  <rect width="650" height="900" fill="url(#dusk)"/>
+  <circle cx="338" cy="301" r="164" fill="#e73434" opacity=".15"/>
+  <circle cx="338" cy="301" r="126" fill="url(#moon)"/>
+  <g fill="#071417">
+    <path d="M0 560 59 455l30 44 50-147 51 146 37-62 44 124zm650 20-55-157-37 73-46-151-55 178-37-62-46 119z"/>
+    <path d="M0 586c95-50 171-35 247 17 81 56 170 57 403-37v334H0z"/>
+  </g>
+  <g transform="translate(328 337)">
+    <path d="M-23-102 0-129l24 27 5 64-29 28-29-28z" fill="#191322"/>
+    <path d="M-27-80-4-91-13-68zm54 0L4-91l9 23z" fill="#ffe16e"/>
+    <path d="M-19-5h38l31 121-51 83-50-83z" fill="#131321"/>
+    <path d="M-32 14C-120 20-212 77-267 176c94-37 160-38 218-4l39-119z" fill="url(#feather)" stroke="#ff6150" stroke-width="3"/>
+    <path d="M32 14c88 6 180 63 235 162-94-37-160-38-218-4L10 53z" fill="url(#feather)" stroke="#ff6150" stroke-width="3"/>
+    <path d="M-239 143c68-17 128-14 180 13m-135-62c57-3 106 8 148 34m285 15c-68-17-128-14-180 13m135-62c-57-3-106 8-148 34" fill="none" stroke="#ffb13d" stroke-width="6" opacity=".75"/>
+    <path d="m-13 25 13-16 14 16-14 34z" fill="#ffc242"/>
+  </g>
+  <g fill="#102329"><path d="M40 666h71v234H40zm83-87h63v321h-63zm342 23h53v298h-53zm67-66h77v364h-77z"/><path d="M206 697h36v203h-36zm203-57h34v260h-34z"/></g>
+  <path d="m0 704 650-57v253H0z" fill="#090b13" opacity=".96"/>
+  <path d="m0 704 650-57" stroke="#ed2939" stroke-width="6"/>
+  <text x="34" y="742" fill="#ffcb55" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="5">A FLORESTA TAMBÉM VIGIA</text>
+  <text x="31" y="809" fill="#fff5df" font-family="Impact, Arial Black, sans-serif" font-size="81" letter-spacing="4">ARARA</text>
+  <text x="30" y="873" fill="#ef3041" font-family="Impact, Arial Black, sans-serif" font-size="84" letter-spacing="6">RUBRA</text>
+  <rect x="14" y="14" width="622" height="872" fill="none" stroke="#ee3443" stroke-width="3"/>
+</svg>

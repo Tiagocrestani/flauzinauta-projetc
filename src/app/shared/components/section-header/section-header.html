@@ -1,0 +1,23 @@
+<header class="section-header" [class.theme-light]="theme() === 'light'">
+  <div class="copy">
+    @if (eyebrow()) {
+      <span class="eyebrow">{{ eyebrow() }}</span>
+    }
+    <h2>{{ title() }}</h2>
+    @if (description()) {
+      <p>{{ description() }}</p>
+    }
+  </div>
+
+  <div class="actions">
+    <ng-content />
+    @if (actionLabel() && actionLink()) {
+      <a [routerLink]="actionLink()">
+        {{ actionLabel() }}
+        <svg viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M4 10h11M11 6l4 4-4 4" />
+        </svg>
+      </a>
+    }
+  </div>
+</header>
