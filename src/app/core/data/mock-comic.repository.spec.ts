@@ -21,7 +21,7 @@ describe('MockComicRepository', () => {
 
     for (const comic of MOCK_COMICS) {
       expect(comic.genres).toContain('Super-heróis');
-      expect(comic.coverUrl).toMatch(/^\/assets\/covers\/.+\.svg$/);
+      expect(comic.coverUrl).toMatch(/^assets\/covers\/.+\.svg$/);
       expect(comic.issues.length).toBeGreaterThan(1);
 
       for (const issue of comic.issues) {
@@ -30,7 +30,7 @@ describe('MockComicRepository', () => {
 
         for (const page of issue.pages) {
           expect(page.issueId).toBe(issue.id);
-          expect(page.imageUrl).toMatch(/^\/assets\/pages\/page-\d{2}\.svg$/);
+          expect(page.imageUrl).toMatch(/^assets\/pages\/page-\d{2}\.svg$/);
         }
       }
     }
