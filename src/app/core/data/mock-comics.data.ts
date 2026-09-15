@@ -10,7 +10,7 @@ function createPages(issueId: string): ComicPage[] {
       id: `${issueId}-page-${pageNumber}`,
       issueId,
       pageNumber,
-      imageUrl: `/assets/pages/page-${String(pageNumber).padStart(2, '0')}.svg`,
+      imageUrl: `assets/pages/page-${String(pageNumber).padStart(2, '0')}.svg`,
     };
   });
 }
@@ -45,7 +45,7 @@ export const MOCK_COMICS: Comic[] = [
     tagline: 'Quando o sol se apaga, ele é a última luz entre a cidade e o abismo.',
     description:
       'Após sobreviver a uma tempestade cósmica, o físico Davi Nascimento passa a canalizar a energia do sol. Agora, entre conspirações de Estado e ameaças vindas do espaço, ele precisa descobrir se um homem ainda pode permanecer humano quando carrega o poder de uma estrela.',
-    coverUrl: '/assets/covers/sentinela-solar.svg',
+    coverUrl: 'assets/covers/sentinela-solar.svg',
     author: 'Luna Amaral',
     genres: ['Super-heróis', 'Ação'],
     status: 'Em andamento',
@@ -86,7 +86,7 @@ export const MOCK_COMICS: Comic[] = [
     tagline: 'Toda cidade tem um ponto de ruptura. Ela consegue enxergá-lo.',
     description:
       'A engenheira Lia Ventura desperta a capacidade de dobrar a gravidade depois do colapso de um laboratório clandestino. Caçada pela corporação responsável, ela atravessa os céus de São Paulo para impedir que a metrópole seja usada como campo de testes.',
-    coverUrl: '/assets/covers/vertice.svg',
+    coverUrl: 'assets/covers/vertice.svg',
     author: 'Caio Nishimura',
     genres: ['Super-heróis', 'Ficção científica'],
     status: 'Em andamento',
@@ -119,7 +119,7 @@ export const MOCK_COMICS: Comic[] = [
     tagline: 'A floresta ganhou asas — e não pretende recuar.',
     description:
       'A piloto e bióloga Maíra Aruã veste uma armadura alimentada por tecnologia ancestral para defender a Amazônia. Entre o céu e as copas, ela combate uma rede mercenária que transforma espécies raras em armas biológicas.',
-    coverUrl: '/assets/covers/arara-rubra.svg',
+    coverUrl: 'assets/covers/arara-rubra.svg',
     author: 'Iara Monteiro',
     genres: ['Super-heróis', 'Aventura'],
     status: 'Em andamento',
@@ -160,7 +160,7 @@ export const MOCK_COMICS: Comic[] = [
     tagline: 'Enquanto uma raiz resistir, a terra terá quem lute por ela.',
     description:
       'Escolhida pelas veredas, a brigadista Joana Veríssimo ouve a memória da terra e desperta forças que atravessam gerações. Seu primeiro desafio é deter um incêndio sobrenatural que apaga pessoas, histórias e rios por onde passa.',
-    coverUrl: '/assets/covers/guardia-do-cerrado.svg',
+    coverUrl: 'assets/covers/guardia-do-cerrado.svg',
     author: 'Marina Dourado',
     genres: ['Super-heróis', 'Mitologia brasileira'],
     status: 'Concluída',
@@ -193,7 +193,7 @@ export const MOCK_COMICS: Comic[] = [
     tagline: 'Ele sente cada impacto. E devolve todos de uma vez.',
     description:
       'O socorrista Miguel Santana absorve energia cinética desde uma explosão no porto de Salvador. Dividido entre salvar vidas e perseguir os responsáveis, ele descobre que sua força cresce na mesma medida que sua raiva.',
-    coverUrl: '/assets/covers/pulso-escarlate.svg',
+    coverUrl: 'assets/covers/pulso-escarlate.svg',
     author: 'Rafael Luz',
     genres: ['Super-heróis', 'Policial'],
     status: 'Em andamento',
@@ -226,7 +226,7 @@ export const MOCK_COMICS: Comic[] = [
     tagline: 'Seis cidades. Uma ameaça. Nenhum herói vence sozinho.',
     description:
       'Quando fendas luminosas isolam capitais brasileiras, heróis que nunca trabalharam juntos precisam formar uma aliança. O que começa como uma missão de resgate logo revela um futuro no qual a Liga já perdeu.',
-    coverUrl: '/assets/covers/liga-do-horizonte.svg',
+    coverUrl: 'assets/covers/liga-do-horizonte.svg',
     author: 'Breno Azevedo',
     genres: ['Super-heróis', 'Drama'],
     status: 'Em andamento',
