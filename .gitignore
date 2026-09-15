@@ -38,6 +38,10 @@ yarn-error.log
 testem.log
 /typings
 __screenshots__/
+/.supabase
+.env
+.env.*
+!.env.example
 
 # System files
 .DS_Store

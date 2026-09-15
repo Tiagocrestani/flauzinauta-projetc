@@ -1,76 +1,8 @@
 import { Routes } from '@angular/router';
 
-import { canDeactivatePendingChanges } from './features/admin/shared/pending-changes.guard';
+import { adminGuard } from './core/auth/admin.guard';
 
 export const routes: Routes = [
-  {
-    path: 'admin',
-    title: 'Painel administrativo — Flauzinauta',
-    loadComponent: () =>
-      import('./features/admin/layout/admin-layout').then((module) => module.AdminLayoutComponent),
-    children: [
-      {
-        path: '',
-        title: 'Visão geral — Flauzinauta Admin',
-        loadComponent: () =>
-          import('./features/admin/dashboard/admin-dashboard').then(
-            (module) => module.AdminDashboardComponent,
-          ),
-      },
-      {
-        path: 'hqs',
-        title: 'Gerenciar HQs — Flauzinauta Admin',
-        loadComponent: () =>
-          import('./features/admin/comic-list/admin-comic-list').then(
-            (module) => module.AdminComicListComponent,
-          ),
-      },
-      {
-        path: 'hqs/nova',
-        title: 'Nova HQ — Flauzinauta Admin',
-        canDeactivate: [canDeactivatePendingChanges],
-        loadComponent: () =>
-          import('./features/admin/comic-form/admin-comic-form').then(
-            (module) => module.AdminComicFormComponent,
-          ),
-      },
-      {
-        path: 'hqs/:id/editar',
-        title: 'Editar HQ — Flauzinauta Admin',
-        canDeactivate: [canDeactivatePendingChanges],
-        loadComponent: () =>
-          import('./features/admin/comic-form/admin-comic-form').then(
-            (module) => module.AdminComicFormComponent,
-          ),
-      },
-      {
-        path: 'hqs/:comicId/edicoes',
-        title: 'Edições — Flauzinauta Admin',
-        loadComponent: () =>
-          import('./features/admin/issue-list/admin-issue-list').then(
-            (module) => module.AdminIssueListComponent,
-          ),
-      },
-      {
-        path: 'hqs/:comicId/edicoes/nova',
-        title: 'Nova edição — Flauzinauta Admin',
-        canDeactivate: [canDeactivatePendingChanges],
-        loadComponent: () =>
-          import('./features/admin/issue-form/admin-issue-form').then(
-            (module) => module.AdminIssueFormComponent,
-          ),
-      },
-      {
-        path: 'hqs/:comicId/edicoes/:issueId/editar',
-        title: 'Editar edição — Flauzinauta Admin',
-        canDeactivate: [canDeactivatePendingChanges],
-        loadComponent: () =>
-          import('./features/admin/issue-form/admin-issue-form').then(
-            (module) => module.AdminIssueFormComponent,
-          ),
-      },
-    ],
-  },
   {
     path: '',
     title: 'Flauzinauta — HQs de super-heróis para ler online',
@@ -94,6 +26,46 @@ export const routes: Routes = [
     path: 'ler/:comicSlug/:issueSlug',
     loadComponent: () =>
       import('./features/reader/reader-page').then((module) => module.ReaderPageComponent),
+  },
+  {
+    path: 'admin/login',
+    title: 'Acesso administrativo — Flauzinauta',
+    loadComponent: () =>
+      import('./features/admin/login/admin-login-page').then(
+        (module) => module.AdminLoginPageComponent,
+      ),
+  },
+  {
+    path: 'admin',
+    canActivate: [adminGuard],
+    loadComponent: () =>
+      import('./features/admin/layout/admin-layout').then((module) => module.AdminLayoutComponent),
+    children: [
+      {
+        path: '',
+        title: 'Painel administrativo — Flauzinauta',
+        loadComponent: () =>
+          import('./features/admin/dashboard/admin-dashboard-page').then(
+            (module) => module.AdminDashboardPageComponent,
+          ),
+      },
+      {
+        path: 'hqs/nova',
+        title: 'Nova HQ — Flauzinauta',
+        loadComponent: () =>
+          import('./features/admin/comic-form/admin-comic-form-page').then(
+            (module) => module.AdminComicFormPageComponent,
+          ),
+      },
+      {
+        path: 'hqs/:comicId/partes/nova',
+        title: 'Nova parte — Flauzinauta',
+        loadComponent: () =>
+          import('./features/admin/issue-form/admin-issue-form-page').then(
+            (module) => module.AdminIssueFormPageComponent,
+          ),
+      },
+    ],
   },
   { path: '**', redirectTo: '' },
 ];

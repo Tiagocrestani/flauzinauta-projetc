@@ -10,14 +10,14 @@ describe('HomePageComponent', () => {
     window.localStorage.clear();
     await TestBed.configureTestingModule({
       imports: [HomePageComponent],
-      providers: [provideRouter([]), provideComicRepository()],
+      providers: [provideRouter([]), provideComicRepository('mock')],
     }).compileComponents();
   });
 
   afterEach(() => window.localStorage.clear());
 
   it('renders a saved reading progress as a continue action', async () => {
-    TestBed.inject(ReaderProgressService).saveProgress('sentinela-solar', 'o-sol-negro', 2);
+    TestBed.inject(ReaderProgressService).saveProgress('flauzinauta', 'a-guerra-no-ceu-parte-1', 2);
 
     const fixture = TestBed.createComponent(HomePageComponent);
     fixture.detectChanges();

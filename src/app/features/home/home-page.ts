@@ -44,29 +44,17 @@ export class HomePageComponent {
 
   protected readonly genres = [
     {
-      name: 'Super-heróis',
+      name: 'Fantasia',
       number: '01',
-      copy: 'Grandes poderes, escolhas difíceis e coragem em cada quadro.',
-    },
-    { name: 'Ação', number: '02', copy: 'Confrontos explosivos e cidades à beira do limite.' },
-    {
-      name: 'Ficção científica',
-      number: '03',
-      copy: 'Poderes impossíveis nascidos da ciência e do desconhecido.',
-    },
-    {
-      name: 'Mitologia brasileira',
-      number: '04',
-      copy: 'Forças ancestrais despertam para proteger nossa terra.',
+      copy: 'Conflitos celestiais, escolhas decisivas e uma guerra que mudará tudo.',
     },
   ];
 
   constructor() {
-    this.title.setTitle('Flauzinauta — HQs de super-heróis brasileiros');
+    this.title.setTitle('Fláuzinauta — HQs para ler online');
     this.meta.updateTag({
       name: 'description',
-      content:
-        'Descubra HQs autorais de super-heróis brasileiros e leia gratuitamente no navegador.',
+      content: 'Leia Fláuzinauta gratuitamente no navegador e acompanhe A Guerra no Céu.',
     });
   }
 

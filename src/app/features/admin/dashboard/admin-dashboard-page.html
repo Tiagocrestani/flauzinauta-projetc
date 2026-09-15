@@ -1,0 +1,112 @@
+<main class="dashboard">
+  <header class="page-heading">
+    <div>
+      <p class="eyebrow">Central editorial</p>
+      <h1>Visão geral</h1>
+      <p>Acompanhe o catálogo e publique novas histórias.</p>
+    </div>
+    <a class="primary-action" routerLink="/admin/hqs/nova">+ Adicionar nova HQ</a>
+  </header>
+
+  <section class="metrics" aria-label="Resumo do catálogo">
+    <article>
+      <span>HQs</span><strong>{{ comics().length }}</strong
+      ><small>Total cadastrado</small>
+    </article>
+    <article>
+      <span>Publicadas</span><strong>{{ publishedCount() }}</strong
+      ><small>Visíveis no site</small>
+    </article>
+    <article>
+      <span>Partes</span><strong>{{ issueCount() }}</strong
+      ><small>Edições cadastradas</small>
+    </article>
+    <article>
+      <span>Páginas</span><strong>{{ pageCount() }}</strong
+      ><small>Imagens ordenadas</small>
+    </article>
+  </section>
+
+  @if (message()) {
+    <p class="notice success" role="status">{{ message() }}</p>
+  }
+  @if (errorMessage()) {
+    <p class="notice error" role="alert">{{ errorMessage() }}</p>
+  }
+
+  <section class="catalog" aria-labelledby="catalog-title">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Biblioteca</p>
+        <h2 id="catalog-title">HQs cadastradas</h2>
+      </div>
+      <span>{{ comics().length }} registro(s)</span>
+    </div>
+
+    @if (loading()) {
+      <p class="empty">Carregando catálogo...</p>
+    } @else if (comics().length === 0) {
+      <div class="empty">
+        <strong>Nenhuma HQ cadastrada.</strong>
+        <a routerLink="/admin/hqs/nova">Criar a primeira HQ</a>
+      </div>
+    } @else {
+      <div class="comic-list">
+        @for (comic of comics(); track comic.id) {
+          <article class="comic-row">
+            <img [src]="comic.coverUrl" [alt]="'Capa de ' + comic.title" />
+            <div class="comic-main">
+              <div class="title-line">
+                <h3>{{ comic.title }}</h3>
+                <span
+                  class="status"
+                  [class.published]="comic.publicationStatus === 'published'"
+                  [class.draft]="comic.publicationStatus === 'draft'"
+                  [class.archived]="comic.publicationStatus === 'archived'"
+                >
+                  {{ statusLabel(comic.publicationStatus) }}
+                </span>
+              </div>
+              <p>{{ comic.author }} · {{ comic.genre }}</p>
+              <small>
+                {{ comic.issueCount }} parte(s) · {{ comic.pageCount }} página(s) ·
+                {{ comic.releaseDate | date: 'dd/MM/yyyy' }}
+              </small>
+            </div>
+            <div class="actions">
+              <a [routerLink]="['/admin/hqs', comic.id, 'partes', 'nova']">+ Nova parte</a>
+              @if (comic.publicationStatus === 'published') {
+                <a [routerLink]="['/hq', comic.slug]" target="_blank">Ver no site ↗</a>
+                <button
+                  type="button"
+                  (click)="changeStatus(comic, 'draft')"
+                  [disabled]="updatingId() === comic.id"
+                >
+                  Voltar a rascunho
+                </button>
+              } @else {
+                <button
+                  class="publish"
+                  type="button"
+                  (click)="changeStatus(comic, 'published')"
+                  [disabled]="updatingId() === comic.id"
+                >
+                  Publicar
+                </button>
+              }
+              @if (comic.publicationStatus !== 'archived') {
+                <button
+                  type="button"
+                  (click)="changeStatus(comic, 'archived')"
+                  [disabled]="updatingId() === comic.id"
+                >
+                  Arquivar
+                </button>
+              }
+            </div>
+          </article>
+        }
+      </div>
+    }
+  </section>
+</main>

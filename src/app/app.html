@@ -1,4 +1,4 @@
-@if (!hasDedicatedLayout()) {
+@if (!isReaderRoute() && !isAdminRoute()) {
   <app-site-header />
 }
 
@@ -6,6 +6,6 @@
   <router-outlet />
 </div>
 
-@if (!hasDedicatedLayout()) {
+@if (!isReaderRoute() && !isAdminRoute()) {
   <app-site-footer />
 }

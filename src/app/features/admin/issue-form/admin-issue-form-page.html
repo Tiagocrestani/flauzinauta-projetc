@@ -1,0 +1,193 @@
+<main class="form-page">
+  <header class="page-heading">
+    <div>
+      <a routerLink="/admin">← Voltar para a visão geral</a>
+      <p class="eyebrow">Continuação da história</p>
+      <h1>Adicionar nova parte</h1>
+      @if (comic(); as currentComic) {
+        <p>
+          Nova publicação para <strong>{{ currentComic.title }}</strong
+          >.
+        </p>
+      } @else if (loading()) {
+        <p>Carregando HQ...</p>
+      }
+    </div>
+  </header>
+
+  @if (success(); as result) {
+    <section class="success-card" role="status">
+      <span aria-hidden="true">✓</span>
+      <div>
+        <strong>{{
+          form.controls.publishNow.value
+            ? 'Parte publicada com sucesso.'
+            : 'Rascunho salvo com sucesso.'
+        }}</strong>
+        <p>As {{ pages().length }} páginas foram enviadas na ordem apresentada.</p>
+        <div class="success-actions">
+          <a routerLink="/admin">Voltar ao painel</a>
+          @if (form.controls.publishNow.value) {
+            <a [routerLink]="['/ler', result.comicSlug, result.issueSlug]" target="_blank"
+              >Testar leitura ↗</a
+            >
+          }
+        </div>
+      </div>
+    </section>
+  }
+
+  <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <section class="form-card" aria-labelledby="issue-data-title">
+      <div class="section-heading">
+        <span>01</span>
+        <div>
+          <p>Informações da publicação</p>
+          <h2 id="issue-data-title">Parte ou edição</h2>
+        </div>
+      </div>
+
+      <div class="fields two-columns">
+        <label>
+          <span>Número *</span>
+          <input formControlName="issueNumber" type="number" min="1" />
+        </label>
+        <label>
+          <span>Data de publicação *</span>
+          <input formControlName="publishedAt" type="date" />
+        </label>
+        <label class="wide">
+          <span>Título da parte *</span>
+          <input
+            formControlName="issueTitle"
+            type="text"
+            placeholder="Ex.: A Guerra no Céu — Parte 2"
+            (input)="syncIssueSlug()"
+          />
+        </label>
+        <label class="wide">
+          <span>Slug da parte *</span>
+          <input formControlName="issueSlug" type="text" placeholder="a-guerra-no-ceu-parte-2" />
+        </label>
+        <label class="wide">
+          <span>Descrição da parte</span>
+          <textarea formControlName="issueDescription" rows="4"></textarea>
+        </label>
+      </div>
+    </section>
+
+    <section class="form-card" aria-labelledby="pages-title">
+      <div class="section-heading">
+        <span>02</span>
+        <div>
+          <p>Arquivos da publicação</p>
+          <h2 id="pages-title">Páginas</h2>
+        </div>
+      </div>
+
+      <div class="upload-grid">
+        <label class="upload-box wide">
+          <strong>Páginas da parte *</strong>
+          <span>Selecione todas de uma vez. A ordem inicial usa o nome dos arquivos.</span>
+          <input
+            type="file"
+            accept=".avif,.jpg,.jpeg,.png,.svg,.webp"
+            multiple
+            (change)="selectPages($event)"
+          />
+          @if (pages().length) {
+            <small
+              >{{ pages().length }} página(s),
+              {{ fileSize(totalSize()) | number: '1.1-1' }} MB</small
+            >
+          }
+        </label>
+      </div>
+
+      @if (fileError()) {
+        <p class="message error" role="alert">{{ fileError() }}</p>
+      }
+
+      @if (pages().length) {
+        <div class="page-order">
+          <div class="order-heading">
+            <div>
+              <strong>Ordem de leitura</strong
+              ><small>Use as setas para corrigir a sequência.</small>
+            </div>
+            <span>{{ pages().length }} páginas</span>
+          </div>
+          <ol>
+            @for (page of pages(); track page; let index = $index) {
+              <li>
+                <span class="page-number">{{ index + 1 }}</span>
+                <span class="file-name"
+                  ><strong>{{ page.name }}</strong
+                  ><small>{{ fileSize(page.size) | number: '1.1-1' }} MB</small></span
+                >
+                <span class="order-actions">
+                  <button
+                    type="button"
+                    aria-label="Mover página para cima"
+                    (click)="movePage(index, -1)"
+                    [disabled]="index === 0"
+                  >
+                    ↑
+                  </button>
+                  <button
+                    type="button"
+                    aria-label="Mover página para baixo"
+                    (click)="movePage(index, 1)"
+                    [disabled]="index === pages().length - 1"
+                  >
+                    ↓
+                  </button>
+                  <button type="button" aria-label="Remover página" (click)="removePage(index)">
+                    ×
+                  </button>
+                </span>
+              </li>
+            }
+          </ol>
+        </div>
+      }
+    </section>
+
+    <section class="publish-card">
+      <label class="checkbox-field">
+        <input formControlName="publishNow" type="checkbox" />
+        <span
+          ><strong>Publicar imediatamente</strong
+          ><small>Desmarque para salvar a parte como rascunho.</small></span
+        >
+      </label>
+
+      @if (progress(); as currentProgress) {
+        <div class="progress" role="status">
+          <div>
+            <strong>{{ currentProgress.message }}</strong
+            ><span>{{ progressPercent() }}%</span>
+          </div>
+          <div class="progress-track"><i [style.width.%]="progressPercent()"></i></div>
+        </div>
+      }
+
+      @if (submitError()) {
+        <p class="message error" role="alert">{{ submitError() }}</p>
+      }
+
+      <div class="submit-actions">
+        <a routerLink="/admin">Cancelar</a>
+        <button type="submit" [disabled]="submitting() || !comic()">
+          {{
+            submitting()
+              ? 'Enviando e salvando...'
+              : form.controls.publishNow.value
+                ? 'Cadastrar e publicar parte'
+                : 'Salvar como rascunho'
+          }}
+        </button>
+      </div>
+    </section>
+  </form>
+</main>

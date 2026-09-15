@@ -1,0 +1,270 @@
+<main class="form-page">
+  <header class="page-heading">
+    <div>
+      <a routerLink="/admin">← Voltar para a visão geral</a>
+      <p class="eyebrow">Publicação</p>
+      <h1>Adicionar nova HQ</h1>
+      <p>Cadastre a história, a primeira parte e suas páginas em uma única operação.</p>
+    </div>
+  </header>
+
+  @if (success(); as result) {
+    <section class="success-card" role="status">
+      <span aria-hidden="true">✓</span>
+      <div>
+        <strong>{{
+          form.controls.publishNow.value
+            ? 'HQ publicada com sucesso.'
+            : 'Rascunho salvo com sucesso.'
+        }}</strong>
+        <p>A capa, a parte e as {{ pages().length }} páginas foram cadastradas.</p>
+        <div class="success-actions">
+          <a routerLink="/admin">Voltar ao painel</a>
+          @if (form.controls.publishNow.value) {
+            <a [routerLink]="['/ler', result.comicSlug, result.issueSlug]" target="_blank"
+              >Testar leitura ↗</a
+            >
+          }
+        </div>
+      </div>
+    </section>
+  }
+
+  <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <section class="form-card" aria-labelledby="comic-data-title">
+      <div class="section-heading">
+        <span>01</span>
+        <div>
+          <p>Informações principais</p>
+          <h2 id="comic-data-title">Dados da HQ</h2>
+        </div>
+      </div>
+
+      <div class="fields two-columns">
+        <label class="wide">
+          <span>Título da HQ *</span>
+          <input
+            formControlName="title"
+            type="text"
+            placeholder="Ex.: Fláuzinauta"
+            (input)="syncComicSlug()"
+          />
+        </label>
+        <label class="wide">
+          <span>Slug da URL *</span>
+          <input formControlName="slug" type="text" placeholder="flauzinauta" />
+          <small>Será usado em /hq/{{ form.controls.slug.value || 'nome-da-hq' }}</small>
+        </label>
+        <label>
+          <span>Autor *</span>
+          <input formControlName="author" type="text" />
+        </label>
+        <label>
+          <span>Gênero *</span>
+          <input formControlName="genre" type="text" />
+        </label>
+        <label>
+          <span>Status da obra *</span>
+          <select formControlName="status">
+            <option value="Em andamento">Em andamento</option>
+            <option value="Concluída">Concluída</option>
+            <option value="Em hiato">Em hiato</option>
+          </select>
+        </label>
+        <label>
+          <span>Data de lançamento *</span>
+          <input formControlName="releaseDate" type="date" />
+        </label>
+        <label class="wide">
+          <span>Chamada curta</span>
+          <input
+            formControlName="tagline"
+            type="text"
+            placeholder="Uma frase de destaque para a HQ"
+          />
+        </label>
+        <label class="wide">
+          <span>Descrição *</span>
+          <textarea
+            formControlName="description"
+            rows="5"
+            placeholder="Apresente o universo e o conflito da HQ"
+          ></textarea>
+        </label>
+        <label class="color-field">
+          <span>Cor de destaque</span>
+          <span class="color-control">
+            <input formControlName="accentColor" type="color" />
+            <code>{{ form.controls.accentColor.value }}</code>
+          </span>
+        </label>
+        <label class="checkbox-field">
+          <input formControlName="featured" type="checkbox" />
+          <span>Exibir como destaque na Home</span>
+        </label>
+      </div>
+    </section>
+
+    <section class="form-card" aria-labelledby="issue-data-title">
+      <div class="section-heading">
+        <span>02</span>
+        <div>
+          <p>Primeira publicação</p>
+          <h2 id="issue-data-title">Parte ou edição</h2>
+        </div>
+      </div>
+
+      <div class="fields two-columns">
+        <label>
+          <span>Número *</span>
+          <input formControlName="issueNumber" type="number" min="1" />
+        </label>
+        <label>
+          <span>Data de publicação *</span>
+          <input formControlName="publishedAt" type="date" />
+        </label>
+        <label class="wide">
+          <span>Título da parte *</span>
+          <input
+            formControlName="issueTitle"
+            type="text"
+            placeholder="Ex.: A Guerra no Céu — Parte 1"
+            (input)="syncIssueSlug()"
+          />
+        </label>
+        <label class="wide">
+          <span>Slug da parte *</span>
+          <input formControlName="issueSlug" type="text" placeholder="a-guerra-no-ceu-parte-1" />
+        </label>
+        <label class="wide">
+          <span>Descrição da parte</span>
+          <textarea formControlName="issueDescription" rows="4"></textarea>
+        </label>
+      </div>
+    </section>
+
+    <section class="form-card" aria-labelledby="files-title">
+      <div class="section-heading">
+        <span>03</span>
+        <div>
+          <p>Arquivos da publicação</p>
+          <h2 id="files-title">Capa e páginas</h2>
+        </div>
+      </div>
+
+      <div class="upload-grid">
+        <label class="upload-box">
+          <strong>Capa da HQ *</strong>
+          <span>PNG, JPG, WebP, AVIF ou SVG, até 15 MB</span>
+          <input
+            type="file"
+            accept=".avif,.jpg,.jpeg,.png,.svg,.webp"
+            (change)="selectCover($event)"
+          />
+          @if (coverFile(); as cover) {
+            <small>Selecionada: {{ cover.name }}</small>
+          }
+        </label>
+
+        <label class="upload-box">
+          <strong>Páginas da parte *</strong>
+          <span>Selecione todas de uma vez. A ordem inicial usa o nome dos arquivos.</span>
+          <input
+            type="file"
+            accept=".avif,.jpg,.jpeg,.png,.svg,.webp"
+            multiple
+            (change)="selectPages($event)"
+          />
+          @if (pages().length) {
+            <small
+              >{{ pages().length }} página(s),
+              {{ fileSize(totalSize()) | number: '1.1-1' }} MB</small
+            >
+          }
+        </label>
+      </div>
+
+      @if (fileError()) {
+        <p class="message error" role="alert">{{ fileError() }}</p>
+      }
+
+      @if (pages().length) {
+        <div class="page-order">
+          <div class="order-heading">
+            <div><strong>Ordem de leitura</strong><small>Revise antes de publicar.</small></div>
+            <span>{{ pages().length }} páginas</span>
+          </div>
+          <ol>
+            @for (page of pages(); track page; let index = $index) {
+              <li>
+                <span class="page-number">{{ index + 1 }}</span>
+                <span class="file-name"
+                  ><strong>{{ page.name }}</strong
+                  ><small>{{ fileSize(page.size) | number: '1.1-1' }} MB</small></span
+                >
+                <span class="order-actions">
+                  <button
+                    type="button"
+                    aria-label="Mover página para cima"
+                    (click)="movePage(index, -1)"
+                    [disabled]="index === 0"
+                  >
+                    ↑
+                  </button>
+                  <button
+                    type="button"
+                    aria-label="Mover página para baixo"
+                    (click)="movePage(index, 1)"
+                    [disabled]="index === pages().length - 1"
+                  >
+                    ↓
+                  </button>
+                  <button type="button" aria-label="Remover página" (click)="removePage(index)">
+                    ×
+                  </button>
+                </span>
+              </li>
+            }
+          </ol>
+        </div>
+      }
+    </section>
+
+    <section class="publish-card">
+      <label class="checkbox-field">
+        <input formControlName="publishNow" type="checkbox" />
+        <span
+          ><strong>Publicar imediatamente</strong
+          ><small>Desmarque para salvar como rascunho invisível no site.</small></span
+        >
+      </label>
+
+      @if (progress(); as currentProgress) {
+        <div class="progress" role="status">
+          <div>
+            <strong>{{ currentProgress.message }}</strong
+            ><span>{{ progressPercent() }}%</span>
+          </div>
+          <div class="progress-track"><i [style.width.%]="progressPercent()"></i></div>
+        </div>
+      }
+
+      @if (submitError()) {
+        <p class="message error" role="alert">{{ submitError() }}</p>
+      }
+
+      <div class="submit-actions">
+        <a routerLink="/admin">Cancelar</a>
+        <button type="submit" [disabled]="submitting()">
+          {{
+            submitting()
+              ? 'Enviando e salvando...'
+              : form.controls.publishNow.value
+                ? 'Cadastrar e publicar HQ'
+                : 'Salvar como rascunho'
+          }}
+        </button>
+      </div>
+    </section>
+  </form>
+</main>
